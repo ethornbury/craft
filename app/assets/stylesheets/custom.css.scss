@@ -48,12 +48,6 @@ footer {
 }
 /* universal */
 
-.myRegLink{
-  color:red;
-  font-style:italic;
-  
-}
-
 body {
   padding-top: 60px;
 }
@@ -87,6 +81,7 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
+
 #error_explanation {
  /* color: red;*/
   ul {
@@ -144,4 +139,22 @@ input {
   border-radius:5px;
   margin: 0 auto;
   padding:10%;
+}
+
+.myLink{
+ font-style: italic;
+ color: #00CCCC;
+}
+.navbar-brand{
+  color: #00CCCC !important;
+}
+.btn-custom{
+  background-color: #00CCCC;
+  color: #fff;
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active{
+   color: #000;
+  }
 }
