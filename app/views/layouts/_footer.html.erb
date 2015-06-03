@@ -5,7 +5,7 @@
   
      <ul>
         <li><%= link_to "About",   about_path %></li>
-        <li><%= link_to "Sign out not connected", '#' %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
      </ul>
   </small>
 </footer>
