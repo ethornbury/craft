@@ -17,12 +17,13 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-            <li><%= link_to current_user.email, edit_user_registration_path %></li>
-            <li><%= link_to "Work", work_path %></li>
+            <li><%= link_to    current_user.email, edit_user_registration_path %></li>
+            <li><%= link_to    "Work", work_path %></li>
             <% if current_user.try(:admin?) %>
-               <li><%= link_to "Admin", '#' %></li>
+               <li><%= link_to "Admin",     '#' %></li>
+               <li><%= link_to "Employees", employees_path %></li>
             <% end %>
-            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to    "Sign Out", destroy_user_session_path, method: :delete %></li>
             <!-- the above method: :delete initiates an ajax request to do the method delete -->
           <% else %>
             <li class="active"><%= link_to "Sign In",  new_user_session_path %></li>

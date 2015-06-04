@@ -1,0 +1,47 @@
+<% provide(:title, 'Employee Index') %>
+
+<div class="page-header">
+  <%= link_to new_employee_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Employee
+  <% end %>
+  <h1>Employee Index</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Add1</th>
+            <th>Add2</th>
+            <th>Add3</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Admin</th>
+            <th>User</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @employees) do |employee| %>
+            <td><%= employee.firstname %></td>
+            <td><%= employee.lastname %></td>
+            <td><%= employee.add1 %></td>
+            <td><%= employee.add2 %></td>
+            <td><%= employee.add3 %></td>
+            <td><%= employee.role %></td>
+            <td><%= employee.status %></td>
+            <td><%= employee.admin %></td>
+            <td><%= employee.user %></td>
+            <td><%= link_to 'Show', employee %></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
