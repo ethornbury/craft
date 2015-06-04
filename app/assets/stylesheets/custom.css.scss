@@ -29,13 +29,7 @@ footer {
       color: #c4c4c4;
     }
   }
-  /*
-  small {
-    float: left;
-  }
-  */
 
-  
   ul {
     float: right;
     list-style: none;
@@ -122,12 +116,6 @@ input {
   }
 }
 /* home page*/ 
-.jumbotron{
-  
-  background-image: url("pottery.jpg");
-  background-repeat:no-repeat;
-
-}
 
 .emertron{
   /*width:60%;
@@ -144,10 +132,19 @@ input {
 .myLink{
  font-style: italic;
  color: #00CCCC;
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active{
+   color: #000;
+  }
 }
+
 .navbar-brand{
   color: #00CCCC !important;
 }
+/* important here cuases bootstraps colours to be overriden and mine to be used */
+
 .btn-custom{
   background-color: #00CCCC;
   color: #fff;
