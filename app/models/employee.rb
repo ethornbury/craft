@@ -3,4 +3,8 @@ class Employee < ActiveRecord::Base
   
   validates :firstname,  presence: true, length: { maximum: 80 }
   validates :lastname,  presence: true, length: { maximum: 80 }
+  
+  def fullname
+     "#{firstname} #{lastname}"
+  end
 end
