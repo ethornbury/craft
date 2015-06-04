@@ -1,0 +1,15 @@
+<% provide(:title, 'Admin') %>
+
+<div class="page-header">
+    <h1>Admin Area</h1>
+</div>
+
+<h4>Import Employees Data</h4>
+<div class="row">
+  <div class="col-md-3">
+    <%= form_tag import_employees_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Upload CSV", class: 'btn btn-custom' %>
+    <% end %>
+  </div>
+</div>

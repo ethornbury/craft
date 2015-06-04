@@ -6,6 +6,11 @@ class EmployeesController < ApplicationController
   # GET /employees.json
   def index
     @employees = Employee.all
+    
+    respond_to do |format|
+      format.html
+      format.csv { render text: @employees.to_csv }
+    end
   end
 
   # GET /employees/1
@@ -61,7 +66,23 @@ class EmployeesController < ApplicationController
       format.json { head :no_content }
     end
   end
- 
+  
+  def import
+    #flash.clear
+    respond_to do |format|
+      begin 
+        Employee.import(params[:file])
+        #redirect_to employees_path, flash[:notice] = "Employees added successully"
+        format.html { redirect_to employees_url, notice: 'Employees added successfully.' }
+        format.json { head :no_content }
+      rescue
+        #redirect_to employees_path, flash[:danger] = "Invalid import, check your CSV file."
+        format.html { redirect_to employees_url, notice: 'Invalid import, check your CSV file.' }
+        format.json { render json: @employee.errors, status: :unprocessable_entity }
+      end
+    end  
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_employee
