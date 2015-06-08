@@ -21,17 +21,23 @@ class EmployeesController < ApplicationController
   # GET /employees/new
   def new
     @employee = Employee.new
+    #@user = User.find(params[:user])
+    #@employee.user_id = current_user.id
+    
   end
 
   # GET /employees/1/edit
   def edit
+    
   end
 
   # POST /employees
   # POST /employees.json
   def create
     @employee = Employee.new(employee_params)
-
+  
+    edit
+    
     respond_to do |format|
       if @employee.save
         format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
@@ -48,6 +54,7 @@ class EmployeesController < ApplicationController
   def update
     respond_to do |format|
       if @employee.update(employee_params)
+      #if @employee = current_user.employee.update(employee_params)
         format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
         format.json { render :show, status: :ok, location: @employee }
       else
@@ -87,6 +94,8 @@ class EmployeesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_employee
       @employee = Employee.find(params[:id])
+      #@employee = current_user.employee.find(params[:id])
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

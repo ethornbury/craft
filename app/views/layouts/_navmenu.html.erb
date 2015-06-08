@@ -17,7 +17,14 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %> <!-- only visible to signed in users, devise method -->
-            <li><%= link_to    current_user.email, edit_user_registration_path %></li>
+            <li><%= link_to current_user.email, edit_user_registration_path %></li>
+            
+            <% if current_user.sign_in_count == 1 %>
+              <li><%= link_to current_user.id, new_employee_path(@user) %></li>
+            <% else %>
+              <li><%= link_to current_user.id, edit_employee_path(current_user.id) %></li>
+            <% end %>
+            
             <li><%= link_to    "Work", work_path %></li>
             <% if current_user.try(:admin?) %> <!-- only visible to admin user -->
                <li><%= link_to "Admin",     manager_path %></li>

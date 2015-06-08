@@ -27,17 +27,17 @@
   </div>
   
   <div class="form-group">
-    <%= f.label :add1 %>
+    <%= f.label 'Address Line 1' %>
       <%= f.text_field :add1, class: "form-control" %>
   </div>
   
   <div class="form-group">
-    <%= f.label :add2 %>
+    <%= f.label 'Address Line 2' %>
       <%= f.text_field :add2, class: "form-control" %>
   </div>
   
   <div class="form-group">
-    <%= f.label :add3 %>
+    <%= f.label 'Address line 3' %>
       <%= f.text_field :add3, class: "form-control" %>
   </div>
   
@@ -46,19 +46,21 @@
       <%= f.text_field :role, class: "form-control" %>
   </div>
   
-  <div class="form-group">
-    <%= f.label :status %>
-      <%= f.text_field :status, class: "form-control" %>
-  </div>
+  <% if current_user.try(:admin?) %> <!-- only visible to admin user --> 
+    <div class="form-group">
+      <%= f.label :status %>
+        <%= f.text_field :status, class: "form-control" %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.label :admin %>
+        <%= f.check_box :admin, class: "form-control" %>
+    </div>
+  <% end %>
   
   <div class="form-group">
-    <%= f.label :admin %>
-      <%= f.check_box :admin, class: "form-control" %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :user %>
-      <%= f.text_field :user, class: "form-control" %>
+    <%= f.label 'User Id' %><i> (you can't edit this field)</i>
+      <%= f.number_field :id, disabled: true, class: "form-control" %>
   </div>
   
   <div class="form-group">

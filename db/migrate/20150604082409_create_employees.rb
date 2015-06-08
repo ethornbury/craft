@@ -1,6 +1,7 @@
 class CreateEmployees < ActiveRecord::Migration
   def change
     create_table :employees do |t|
+      t.belongs_to :user, index: true
       t.string :firstname
       t.string :lastname
       t.string :add1
@@ -9,7 +10,7 @@ class CreateEmployees < ActiveRecord::Migration
       t.string :role
       t.string :status
       t.boolean :admin,       default: false
-      t.references :user, index: true
+      #t.references :user, index: true
 
       t.timestamps null: false
     end

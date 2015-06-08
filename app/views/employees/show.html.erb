@@ -5,7 +5,7 @@
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
-  <%= link_to edit_employee_path(@employee), class: 'btn btn-primary' do %>
+  <%= link_to edit_employee_path(@employee), class: 'btn btn-custom' do %>
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
@@ -13,19 +13,19 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Firstname:</dt>
+  <dt>Name:</dt>
   <dd><%= @employee.firstname %></dd>
 
-  <dt>Lastname:</dt>
+  <dt>Surname:</dt>
   <dd><%= @employee.lastname %></dd>
 
-  <dt>Add1:</dt>
+  <dt>Address Line 1:</dt>
   <dd><%= @employee.add1 %></dd>
 
-  <dt>Add2:</dt>
+  <dt>Address Line 2:</dt>
   <dd><%= @employee.add2 %></dd>
 
-  <dt>Add3:</dt>
+  <dt>Address Line 3:</dt>
   <dd><%= @employee.add3 %></dd>
 
   <dt>Role:</dt>
@@ -37,7 +37,7 @@
   <dt>Admin:</dt>
   <dd><%= @employee.admin %></dd>
 
-  <dt>User:</dt>
-  <dd><%= @employee.user %></dd>
+  <dt>Id:</dt>
+  <dd><%= @employee.id %></dd>
 
 </dl>

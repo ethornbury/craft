@@ -1,5 +1,25 @@
 <% provide(:title, 'Contact') %>
 <div class="page-header">
-    <h1>StaticPages#contact</h1>
-    <p>Find me in app/views/static_pages/contact.html.erb</p>
+    <h1>Get in Contact</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <%= form_tag do %>
+            <div class="form-group">
+                <%= label_tag 'name', 'Name' %>
+                <%= text_field_tag 'name', nil, class: 'form-control', placeholder: 'Your Name' %>
+            </div>
+           <div class="form-group">
+               <%= label_tag 'email', 'Email' %>
+               <%= email_field_tag 'email', nil, class: 'form-control', placeholder: 'Your Email Address' %>
+           </div>
+           <div class="form-group">
+               <%= label_tag 'comments', 'Comments' %>
+               <%= text_area_tag 'comments', nil, class: 'form-control', rows: 4, placeholder: 'Comments...' %>
+           </div>
+           <%= submit_tag nil, disabled: true, class: 'btn btn-custom' %>
+            
+       <% end %>
+    </div>
 </div>

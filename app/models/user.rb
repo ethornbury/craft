@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  has_one :employee
+  has_one :employee, dependent: :destroy
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -12,5 +13,7 @@ class User < ActiveRecord::Base
     else
       1.hour
     end
-  end       
+  end 
+  
+  
 end
