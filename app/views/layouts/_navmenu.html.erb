@@ -16,20 +16,33 @@
           <li><%= link_to "Contact",  contact_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          
           <% if user_signed_in? %> <!-- only visible to signed in users, devise method -->
             <li><%= link_to current_user.email, edit_user_registration_path %></li>
             
             <% if current_user.sign_in_count == 1 %>
-              <li><%= link_to current_user.id, new_employee_path(@user) %></li>
+              <li><%#= link_to current_user.id, new_employee_path(current_user.id) %></li>
+              <li><%= link_to current_user.email, edit_employee_path(current_user.id) %></li>
             <% else %>
-              <li><%= link_to current_user.id, edit_employee_path(current_user.id) %></li>
+              <li><%#= link_to current_user.id, edit_employee_path(current_user.id) %></li>
+              <li><%= link_to current_user.email, edit_employee_path(current_user.id) %></li>
             <% end %>
             
             <li><%= link_to    "Work", work_path %></li>
+            
             <% if current_user.try(:admin?) %> <!-- only visible to admin user -->
-               <li><%= link_to "Admin",     manager_path %></li>
-               <li><%= link_to "Employees", employees_path %></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Employees",    employees_path %></li>
+                  <li><%= link_to "Product Set",  products_path %></li>
+                  <li><%= link_to "Phase Set",    '#' %></li>
+                  <li><%= link_to "Work Set Up",   '#' %></li>
+                  <li><%= link_to "Manager",      manager_path %></li>
+                </ul>
+              </li>
             <% end %>
+        
             <li><%= link_to    "Sign Out", destroy_user_session_path, method: :delete %></li>
             <!-- the above method: :delete initiates an ajax request to do the method delete -->
           <% else %>
@@ -40,3 +53,6 @@
       </div>
     </div>
   </nav>
+  
+
+             

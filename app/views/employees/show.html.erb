@@ -14,10 +14,10 @@
 
 <dl class="dl-horizontal">
   <dt>Name:</dt>
-  <dd><%= @employee.firstname %></dd>
+  <dd><%= @employee.fullname %></dd>
 
-  <dt>Surname:</dt>
-  <dd><%= @employee.lastname %></dd>
+  <dt>Email:</dt>
+  <dd><%= @employee.email %></dd>
 
   <dt>Address Line 1:</dt>
   <dd><%= @employee.add1 %></dd>
@@ -39,5 +39,8 @@
 
   <dt>Id:</dt>
   <dd><%= @employee.id %></dd>
-
+<!--  
+  <dt>User Id:</dt>
+  <dd><%#= @employee.user_id %></dd>
+-->
 </dl>

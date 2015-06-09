@@ -7,7 +7,11 @@ class Employee < ActiveRecord::Base
     def fullname
          "#{firstname} #{lastname}"
     end
-  
+    
+    def email
+        #email = employee.current_user.email
+    end 
+    
     def self.import(file)
         CSV.foreach(file.path, headers: true) do |row|
             Employee.create! row.to_hash
@@ -21,6 +25,5 @@ class Employee < ActiveRecord::Base
                 csv << employee.attributes.values_at(*column_names)
             end
         end
-    end 
-   
+    end
 end

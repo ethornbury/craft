@@ -1,7 +1,8 @@
 class EmployeesController < ApplicationController
-  before_action :set_employee, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show, :edit, :update, :destroy]
-
+  before_action :set_employee, only: [:show, :edit, :update]
+  before_action :authenticate_user! #, except: [:show, :edit, :update, :destroy]
+  before_action :ensure_admin, only: [:destroy]
+  
   # GET /employees
   # GET /employees.json
   def index
@@ -21,21 +22,19 @@ class EmployeesController < ApplicationController
   # GET /employees/new
   def new
     @employee = Employee.new
-    #@user = User.find(params[:user])
-    #@employee.user_id = current_user.id
-    
+    @employee.user_id = current_user.id
   end
 
   # GET /employees/1/edit
   def edit
-    
   end
 
   # POST /employees
   # POST /employees.json
   def create
     @employee = Employee.new(employee_params)
-  
+    @employee.id = current_user.id
+
     edit
     
     respond_to do |format|
@@ -54,7 +53,6 @@ class EmployeesController < ApplicationController
   def update
     respond_to do |format|
       if @employee.update(employee_params)
-      #if @employee = current_user.employee.update(employee_params)
         format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
         format.json { render :show, status: :ok, location: @employee }
       else
@@ -71,6 +69,15 @@ class EmployeesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+  def ensure_admin
+    unless current_user && current_user.admin?
+    #render :text => "Access Error Message", :status => :unauthorized
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: 'Please contact the administrator to complete this action.' }
+        format.json { head :no_content }
+      end
     end
   end
   
@@ -94,12 +101,10 @@ class EmployeesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_employee
       @employee = Employee.find(params[:id])
-      #@employee = current_user.employee.find(params[:id])
-      
     end
-
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:firstname, :lastname, :add1, :add2, :add3, :role, :status, :admin, :user_id)
+      params.require(:employee).permit(:firstname, :lastname, :add1, :add2, :add3, :role, :status, :admin, :email, :user_id)
     end
 end
