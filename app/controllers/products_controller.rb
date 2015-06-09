@@ -6,7 +6,17 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    if params[:search]
+      @products = Product.search(params[:search]).order("productname ASC")
+    else
+      @products = Product.all.order("lastname ASC")
+    end
+    
+    respond_to do |format|
+      format.html
+      format.csv { render text: @products.to_csv }
+    end
+    #@products = Product.all
   end
 
   # GET /products/1

@@ -1,7 +1,7 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update]
   before_action :authenticate_user! #, except: [:show, :edit, :update, :destroy]
-  before_action :ensure_admin, only: [:destroy]
+  before_action :ensure_admin, only: [:destroy, :edit, :update]
   
   # GET /employees
   # GET /employees.json
@@ -69,15 +69,6 @@ class EmployeesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }
       format.json { head :no_content }
-    end
-  end
-  def ensure_admin
-    unless current_user && current_user.admin?
-    #render :text => "Access Error Message", :status => :unauthorized
-      respond_to do |format|
-        format.html { redirect_to root_path, notice: 'Please contact the administrator to complete this action.' }
-        format.json { head :no_content }
-      end
     end
   end
   

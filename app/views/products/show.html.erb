@@ -1,9 +1,11 @@
+<% provide(:title, 'Show Product') %>
+
 <div class="page-header">
   <%= link_to products_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
-  <%= link_to edit_product_path(@product), class: 'btn btn-primary' do %>
+  <%= link_to edit_product_path(@product), class: 'btn btn-custom' do %>
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
@@ -11,10 +13,10 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Productname:</dt>
+  <dt>Product name:</dt>
   <dd><%= @product.productname %></dd>
 
-  <dt>Desc:</dt>
+  <dt>Description:</dt>
   <dd><%= @product.desc %></dd>
 
 </dl>
