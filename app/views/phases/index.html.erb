@@ -1,0 +1,46 @@
+<% provide(:title, 'Phase Index') %>
+
+<div class="page-header">
+  <%= link_to new_phase_path, class: 'btn btn-custom' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Phase
+  <% end %>
+
+    <div class="col-md-6 pull-right">
+        <%= form_tag(phases_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+            <div class="input-group col-md-7">
+               <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Phases" %>
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                  </button>
+                </div>
+            </div>
+        <% end %>
+      </div>
+  <h1>Phase index</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Phase Name</th>
+            <th>Note</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @phases) do |phase| %>
+            <td><%= phase.phasename %></td>
+            <td><%= phase.note %></td>
+            <td><%= link_to 'Show', phase %></td>
+        <td><%= link_to 'Edit', edit_phase_path(phase) %></td>
+        <td><%= link_to 'Destroy', phase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

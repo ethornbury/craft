@@ -1,0 +1,22 @@
+<% provide(:title, 'New Phase') %>
+
+<div class="page-header">
+  <%= link_to phases_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_phase_path(@phase), class: 'btn btn-custom' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show Phase</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Phasename:</dt>
+  <dd><%= @phase.phasename %></dd>
+
+  <dt>Note:</dt>
+  <dd><%= @phase.note %></dd>
+
+</dl>

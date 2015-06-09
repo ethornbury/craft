@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     if params[:search]
       @products = Product.search(params[:search]).order("productname ASC")
     else
-      @products = Product.all.order("lastname ASC")
+      @products = Product.all.order("productname ASC")
     end
     
     respond_to do |format|

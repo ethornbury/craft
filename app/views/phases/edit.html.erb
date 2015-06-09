@@ -1,15 +1,15 @@
-<% provide(:title, 'Edit') %>
+<% provide(:title, 'Edit Phase') %>
 
 <div class="page-header">
-  <%= link_to employees_path, class: 'btn btn-default' do %>
+  <%= link_to phases_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
-  <%= link_to @employee, class: 'btn btn-custom' do %>
+  <%= link_to @phase, class: 'btn btn-custom' do %>
     <span class="glyphicon glyphicon-info-sign"></span>
     Show
   <% end %>
-  <h1>Edit Employee</h1>
+  <h1>Edit Phase</h1>
 </div>
 
 <%= render 'form' %>

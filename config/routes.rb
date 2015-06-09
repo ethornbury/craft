@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
 
-  resources :products
-
   devise_for :users do
     post 'create_employee', on: :collection
   end
+  
+  root 'static_pages#home'
+  resources :phases
+  resources :products
   resources :employees do
     collection { post :import }
   end
-  
-  root 'static_pages#home'
   
   get 'about'     =>  'static_pages#about'
   get 'contact'   =>  'static_pages#contact'
