@@ -1,7 +1,8 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    
+ <pre><%= @employee.id.to_yaml %></pre>   
+ <pre><%= @employee.user_id.to_yaml %></pre>
     <%= form_for(@employee, html: { class: "form-horizontal", role: "form" }) do |f| %>
       <% if @employee.errors.any? %>
         <div class="alert alert-danger alert-dismissable" role="alert">

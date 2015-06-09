@@ -2,8 +2,8 @@ class CreateEmployees < ActiveRecord::Migration
   def change
     create_table :employees do |t|
       t.belongs_to :user, index: true
-      t.string :firstname
-      t.string :lastname
+      t.string :firstname,  null: false
+      t.string :lastname,   null: false
       t.string :add1
       t.string :add2
       t.string :add3
