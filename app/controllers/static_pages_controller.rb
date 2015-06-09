@@ -10,9 +10,6 @@ class StaticPagesController < ApplicationController
   def contact
   end
   
-  def work
-  end
-  
   def manager
   end 
 end

@@ -1,0 +1,32 @@
+<% provide(:title, 'Show Workphase') %>
+<div class="page-header">
+  <%= link_to workphases_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_workphase_path(@workphase), class: 'btn btn-custom' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show workphase</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Product:</dt>
+  <dd><%= @workphase.product %></dd>
+
+  <dt>Phase:</dt>
+  <dd><%= @workphase.phase %></dd>
+
+  <dt>Total:</dt>
+  <dd><%= @workphase.total %></dd>
+
+  <dt>Date Last Changed:</dt>
+  <dd><%= @workphase.dateChanged.strftime("%d-%m-%Y") %></dd>
+  
+  <dt>Employee:</dt>
+  <dd><%#= @workphase.employee.firstname %> <%#= @workphase.employee.lastname %> </dd>
+  
+  <dt>Work Note:</dt>
+  <dd><%= @workphase.worknote %></dd>
+</dl>

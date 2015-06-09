@@ -21,26 +21,30 @@
             <th>Status</th>
             <th>Admin</th>
             <th>Id</th>
-            <th></th>
-        <th></th>
-        <th></th>
+          <% if current_user.try(:admin?) %> 
+            <td></td>
+            <td></td>
+            <td></td>
+          <% end %>
       </tr>
     </thead>
 
     <tbody>
       <%= content_tag_for(:tr, @employees) do |employee| %>
-            <td><%= employee.fullname %></td>
-            <td><%= employee.email %></td>
-            <td><%= employee.add1 %></td>
-            <td><%= employee.add2 %></td>
-            <td><%= employee.add3 %></td>
-            <td><%= employee.role %></td>
-            <td><%= employee.status %></td>
-            <td><%= employee.admin %></td>
-            <td><%= employee.id %></td>
-            <td><%= link_to 'Show', employee %></td>
-        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-        <td><%= link_to 'Destroy #hide', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= employee.fullname %></td>
+          <td><%= employee.email %></td>
+          <td><%= employee.add1 %></td>
+          <td><%= employee.add2 %></td>
+          <td><%= employee.add3 %></td>
+          <td><%= employee.role %></td>
+          <td><%= employee.status %></td>
+          <td><%= employee.admin %></td>
+          <td><%= employee.id %></td>
+        <% if current_user.try(:admin?) %> 
+          <td><%= link_to 'Show', employee %>
+          <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+          <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       <% end %>
     </tbody>
   </table>

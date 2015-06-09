@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+
   validates :productname,  presence: true, length: { maximum: 100 }
   validates :desc,  presence: true, length: { maximum: 255 } #255 is limit of string field
   

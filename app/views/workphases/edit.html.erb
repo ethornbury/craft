@@ -1,0 +1,15 @@
+<% provide(:title, 'Edit Workphase') %>
+
+<div class="page-header">
+  <%= link_to workphases_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to @workphase, class: 'btn btn-custom' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Show
+  <% end %>
+  <h1>Edit Workphase</h1>
+</div>
+
+<%= render 'form' %>
