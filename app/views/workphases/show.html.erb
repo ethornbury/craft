@@ -12,11 +12,11 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Product:</dt>
-  <dd><%= @workphase.product %></dd>
-
-  <dt>Phase:</dt>
-  <dd><%= @workphase.phase %></dd>
+  <dt>Product name: Id</dt>
+  <dd><%= @workphase.product.productname %>: <%= @workphase.product_id %></dd>
+  
+  <dt>Phase name: Id</dt>
+  <dd><%= @workphase.phase.phasename %>: <%= @workphase.phase_id %></dd>
 
   <dt>Total:</dt>
   <dd><%= @workphase.total %></dd>
@@ -24,8 +24,8 @@
   <dt>Date Last Changed:</dt>
   <dd><%= @workphase.dateChanged.strftime("%d-%m-%Y") %></dd>
   
-  <dt>Employee:</dt>
-  <dd><%= @workphase.employee.firstname %> <%= @workphase.employee.lastname %> </dd>
+  <dt>Employee: Id</dt>
+  <dd><%= @workphase.employee.firstname %> <%= @workphase.employee.lastname %>: <%= @workphase.employee_id %> </dd>
   
   <dt>Work Note:</dt>
   <dd><%= @workphase.worknote %></dd>

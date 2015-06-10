@@ -3,7 +3,9 @@ class WorkphasesController < ApplicationController
   before_action :authenticate_user! 
   before_action :ensure_admin, only: [:edit, :update, :destroy]
   delegate :fullname, to: :employee, prefix: true #facillitates => @workphase.employee_fullname
-  delegate :lastname, to: :employee, prefix: true
+  delegate :lastname,     to: :employee, prefix: true
+  delegate :phasename,    to: :phase,    prefix: true
+  delegate :productname,  to: :product,  prefix: true
   # GET /workphases
   # GET /workphases.json
   def view

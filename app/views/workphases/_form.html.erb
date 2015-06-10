@@ -17,13 +17,16 @@
       
       <div class="form-group">
         <%= f.label :product %>
-          <%= f.text_field :product, class: "form-control" %>
+        <%#= f.text_field :product, class: "form-control" %>
+        <%= collection_select(:workphase, :product_id, Product.all, :id, :productname, {:mulitple => false}, {class: "form-control"}) %>
       </div>
       
       <div class="form-group">
         <%= f.label :phase %>
-          <%= f.text_field :phase, class: "form-control" %>
+        <%#= f.text_field :phase, class: "form-control" %>
+        <%= collection_select(:workphase, :phase_id, Phase.all, :id, :phasename, {:mulitple => false}, {class: "form-control"}) %>
       </div>
+      
       <div class="form-group">
         <%= f.label 'Total to be made' %>
           <%= f.number_field :total, class: "form-control" %>
