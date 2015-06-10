@@ -31,7 +31,7 @@
       
       <div class="form-group">
         <%= f.label 'Date Changed' %>
-          <%= f.date_field :dateChanged, class: "form-control" %>
+          <%= f.date_field :dateChanged, :value => Date.today, class: "form-control" %>
       </div>
       
       <div class="form-group">

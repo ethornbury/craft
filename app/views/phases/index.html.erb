@@ -26,6 +26,7 @@
     <thead>
       <tr>
             <th>Phase Name</th>
+            <th>Phase Id</th>            
             <th>Note</th>
             <th></th>
         <th></th>
@@ -36,6 +37,7 @@
     <tbody>
       <%= content_tag_for(:tr, @phases) do |phase| %>
             <td><%= phase.phasename %></td>
+            <td><%= phase.id %></td>
             <td><%= phase.note %></td>
             <td><%= link_to 'Show', phase %></td>
         <td><%= link_to 'Edit', edit_phase_path(phase) %></td>

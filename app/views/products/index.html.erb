@@ -28,6 +28,7 @@
     <thead>
       <tr>
         <th>Product Name</th>
+        <th>Product Id</th>
         <th>Description</th>
         <th></th>
         <th></th>
@@ -38,6 +39,7 @@
     <tbody>
       <%= content_tag_for(:tr, @products) do |product| %>
         <td><%= product.productname %></td>
+        <td><%= product.id %></td>
         <td><%= product.desc %></td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
@@ -46,3 +48,6 @@
     </tbody>
   </table>
 </div>
+
+<h4>Export Products Data</h4>
+ <%= link_to "Download CSV file", products_path(format: "csv"), class: 'btn btn-custom' %><br><br>
