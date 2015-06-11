@@ -19,7 +19,7 @@
   <dd><%= @workphase.phase.phasename %>: <%= @workphase.phase_id %></dd>
 
   <dt>Total:</dt>
-  <dd><%= @workphase.total %></dd>
+  <dd><%= best_in_place @workphase, :total %></dd>
 
   <dt>Date Last Changed:</dt>
   <dd><%= @workphase.dateChanged.strftime("%d-%m-%Y") %></dd>

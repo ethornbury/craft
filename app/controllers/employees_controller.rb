@@ -1,9 +1,9 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update]
   before_action :authenticate_user! 
-  #only authenticated user can access the methods below
+  #only authenticated user (created by devise engine) can access the methods below
   before_action :ensure_admin, only: [:destroy]
-  #only admin user can delete
+  #only admin user can delete, the is found in the application_helper.rb
   
   # GET /employees
   # GET /employees.json

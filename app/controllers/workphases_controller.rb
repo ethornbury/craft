@@ -8,9 +8,12 @@ class WorkphasesController < ApplicationController
   delegate :productname,  to: :product,  prefix: true
   # the above delegate lines allow for the 'lastname' field from 'employee' table to used
   
+  respond_to :html, :json
+  
   # GET /workphases
   # GET /workphases.json
   def view
+     @workphases = Workphase.all
   end
   
   def index
