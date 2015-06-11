@@ -1,7 +1,7 @@
 class WorkphasesController < ApplicationController
   before_action :set_workphase, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user! 
-  before_action :ensure_admin, only: [:edit, :update, :destroy]
+  before_action :ensure_admin, only: [:destroy]
   delegate :fullname, to: :employee, prefix: true #facillitates => @workphase.employee_fullname
   delegate :lastname,     to: :employee, prefix: true
   delegate :phasename,    to: :phase,    prefix: true
@@ -87,6 +87,9 @@ class WorkphasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workphase_params
-      params.require(:workphase).permit(:worknote, :total, :dateChanged, :product_id, :phase_id, :employee_id)
+      params.require(:workphase).permit(:worknote, :dateChanged, 
+                     :product_id, :phase_id, :employee_id,
+                     :adminNote,  :totalMade, :totalToMake,
+                     :dateComplete)
     end
 end

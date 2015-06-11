@@ -18,15 +18,15 @@
   <dt>Phase name: Id</dt>
   <dd><%= @workphase.phase.phasename %>: <%= @workphase.phase_id %></dd>
 
-  <dt>Total:</dt>
-  <dd><%= best_in_place @workphase, :total %></dd>
+  <dt>Total required:</dt>
+  <dd><%= @workphase.totalToMake %></dd>
 
   <dt>Date Last Changed:</dt>
   <dd><%= @workphase.dateChanged.strftime("%d-%m-%Y") %></dd>
-  
-  <dt>Employee: Id</dt>
-  <dd><%= @workphase.employee.firstname %> <%= @workphase.employee.lastname %>: <%= @workphase.employee_id %> </dd>
-  
-  <dt>Work Note:</dt>
-  <dd><%= @workphase.worknote %></dd>
+<!--  
+  <dt>Work completed by Employee: Id</dt>
+  <dd><%#= @workphase.employee.firstname %> <%#= @workphase.employee.lastname %>: <%#= @workphase.employee_id %> </dd>
+--> 
+  <dt>Admin Note:</dt>
+  <dd><%= @workphase.adminNote %></dd>
 </dl>
