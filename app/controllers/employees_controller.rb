@@ -1,7 +1,9 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update]
-  before_action :authenticate_user! #, except: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user! 
+  #only authenticated user can access the methods below
   before_action :ensure_admin, only: [:destroy]
+  #only admin user can delete
   
   # GET /employees
   # GET /employees.json
@@ -23,10 +25,12 @@ class EmployeesController < ApplicationController
   def new
     @employee = Employee.new
     @employee.user_id = current_user.id
+    @employee.email = current_user.email
   end
 
   # GET /employees/1/edit
   def edit
+    
   end
 
   # POST /employees
@@ -65,6 +69,7 @@ class EmployeesController < ApplicationController
   # DELETE /employees/1
   # DELETE /employees/1.json
   def destroy
+    #this was to catch a problem gracefully but has been fixed
 #    if @employee.nil?
 #      respond_to do |format|
 #        format.html { redirect_to employees_url, notice: 'Employee was not destroyed.' }

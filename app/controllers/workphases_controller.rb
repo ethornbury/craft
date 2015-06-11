@@ -6,6 +6,8 @@ class WorkphasesController < ApplicationController
   delegate :lastname,     to: :employee, prefix: true
   delegate :phasename,    to: :phase,    prefix: true
   delegate :productname,  to: :product,  prefix: true
+  # the above delegate lines allow for the 'lastname' field from 'employee' table to used
+  
   # GET /workphases
   # GET /workphases.json
   def view
@@ -13,6 +15,11 @@ class WorkphasesController < ApplicationController
   
   def index
     @workphases = Workphase.all
+    
+    respond_to do |format|
+      format.html
+      format.csv { render text: @workphases.to_csv }
+    end
   end
 
   # GET /workphases/1

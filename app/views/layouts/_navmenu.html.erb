@@ -20,12 +20,10 @@
           <% if user_signed_in? %> <!-- only visible to signed in users, devise method -->
             <li><%= link_to current_user.email, edit_user_registration_path %></li>
             
-            <% if current_user.sign_in_count == 1 %>
-              <li><%#= link_to current_user.id, new_employee_path(current_user.id) %></li>
-              <li><%= link_to current_user.email, edit_employee_path(current_user.id) %></li>
-            <% else %>
-              <li><%#= link_to current_user.id, edit_employee_path(current_user.id) %></li>
-              <li><%= link_to current_user.email, edit_employee_path(current_user.id) %></li>
+            <% if current_user.sign_in_count == 1 %><!-- new emp link -->
+              <li><%= link_to 'Set up your Profile', new_employee_path(current_user.id, current_user.email) %></li>
+            <% else %>               <!-- edit link for returning emp -->
+              <li><%= link_to 'Edit Profile', edit_employee_path(current_user.id) %></li>
             <% end %>
             
             <li><%= link_to    "Work", work_path %></li>
