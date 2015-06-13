@@ -13,19 +13,11 @@ class WorkphasesController < ApplicationController
   
   # GET /workphases
   # GET /workphases.json
+  
   def view
-    @workphases = Workphase.all
     
-    if params[:search]
-      @workphases = Workphase.search(params[:search])
-    else
-      @workphases = Workphase.all
-    end
-    if params[:query]
-      @workphases = Workphase.search(params[:query])
-    else
-      @workphases = Workphase.all
-    end
+    #@workphases = Workphase.all
+    @workphases = Workphase.search(params[:search])
   end
   
   def index

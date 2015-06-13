@@ -15,13 +15,10 @@ class Workphase < ActiveRecord::Base
       end
     end
   end
+  
 
   def self.search(query)
-    #where(:title, query) -> ##This would return an exact match of the query
     # return an similar match of the query
-       where("product_id like ?", "%#{query}%")
-  end
-  def self.search(search)
-       where("phase_id like ?", "%#{search}%")
+      where("product_id like ?", "%#{query}%") 
   end
 end
