@@ -3,7 +3,7 @@ class Workphase < ActiveRecord::Base
   belongs_to :phase
   belongs_to :employee
   
-  validates :total,  
+  validates :totalToMake,  
             :presence => {:message => "must be provided"},
             :numericality => {greater_than: 0, :message => "must be greater than 0"}
   
@@ -16,7 +16,8 @@ class Workphase < ActiveRecord::Base
     end
   end
 
-  def phase_to_show
-    
+  def self.search(query)
+    # return an similar match of the query
+       where("productname like ?", "%#{query}%") 
   end
 end

@@ -19,6 +19,11 @@ class Employee < ActiveRecord::Base
         "#{firstname} #{lastname}"
     end
     
+    def self.search(query)
+    # return an similar match of the query
+       where("lastname like ?", "%#{query}%") 
+    end
+    
     def self.import(file)
         CSV.foreach(file.path, headers: true) do |row|
             Employee.create! row.to_hash

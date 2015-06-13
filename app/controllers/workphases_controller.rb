@@ -2,6 +2,7 @@ class WorkphasesController < ApplicationController
   before_action :set_workphase, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user! 
   before_action :ensure_admin, only: [:destroy]
+
   delegate :fullname, to: :employee, prefix: true #facillitates => @workphase.employee_fullname
   delegate :lastname,     to: :employee, prefix: true
   delegate :phasename,    to: :phase,    prefix: true
@@ -13,7 +14,13 @@ class WorkphasesController < ApplicationController
   # GET /workphases
   # GET /workphases.json
   def view
-     @workphases = Workphase.all
+
+    @workphases = Workphase.all
+    if params[:search]
+      @products = Product.search(params[:search]).order("productname ASC")
+    else
+      @products = Product.all.order("productname ASC")
+    end
   end
   
   def index

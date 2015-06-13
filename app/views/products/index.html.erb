@@ -50,4 +50,8 @@
 </div>
 
 <h4>Export Products Data</h4>
- <%= link_to "Download CSV file", products_path(format: "csv"), class: 'btn btn-custom' %><br><br>
+ <%= link_to products_path(format: "csv"), class: 'btn btn-custom' do %>
+   <span class="glyphicon glyphicon-download-alt" ></span>
+   Download CSV file
+ <% end %>
+ <br><br>

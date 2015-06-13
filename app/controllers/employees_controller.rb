@@ -8,8 +8,15 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.all
+    #@employees = Employee.all
     
+    if params[:search]
+      @employees = Employee.search(params[:search]).order("lastname ASC")
+    else
+      @employees = Employee.all.order("lastname ASC")
+    end
+    
+
     respond_to do |format|
       format.html
       format.csv { render text: @employees.to_csv }

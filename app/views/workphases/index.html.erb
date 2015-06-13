@@ -12,15 +12,15 @@
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-          <th>Product</th>
-          <th>Phase</th>
-          <th>Total required</th>
-          <th>Total completed</th>
-          <th>Date work created</th>
-          <th>Date work completed</th>
-          <th>Completed by</th>
-          <th>Admin Note</th>
-          <th>Work Note</th>
+          <th scope="col">Product</th>
+          <th scope="col">Phase</th>
+          <th scope="col">Total required</th>
+          <th scope="col">Total completed</th>
+          <th scope="col">Date work created</th>
+          <th scope="col">Date work completed</th>
+          <th scope="col">Completed by</th>
+          <th scope="col">Admin Note</th>
+          <th scope="col">Work Note</th>
           <th></th>
         <th></th>
         <th></th>
@@ -29,13 +29,13 @@
 
     <tbody>
       <%= content_tag_for(:tr, @workphases) do |workphase| %>
-        <td><%= workphase.product.productname %>: <%= workphase.product_id %></td>
+        <td scope="row"><%= workphase.product.productname %>: <%= workphase.product_id %></td>
         <td><%= workphase.phase.phasename %>: <%= workphase.phase_id %></td>
         <td><%= workphase.totalToMake %></td>
         <td><%= workphase.totalMade %></td>
         <td><%= workphase.dateChanged.strftime("%d-%m-%Y") %></td>
         <td><%= workphase.dateComplete %></td>
-        <td><%= workphase.employee.firstname %> <%= workphase.employee.lastname %></td>
+        <td><%= workphase.employee_id %> <%#= workphase.employee.lastname %></td>
         <td><%= workphase.adminNote %></td>
         <td><%= workphase.worknote %></td>
         <td><%= link_to 'Show',     workphase %></td>
@@ -47,4 +47,8 @@
 </div>
 <br>
 <h4>Export Workphases Data</h4>
- <%= link_to "Download CSV file", workphases_path(format: "csv"), class: 'btn btn-custom' %><br><br>
+ <%= link_to workphases_path(format: "csv"), class: 'btn btn-custom' do %>
+   <span class="glyphicon glyphicon-download-alt" ></span>
+     Download CSV file
+ <% end %>
+ <br><br>
