@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
   
   def self.search(query)
     # return an similar match of the query
-       where("productname like ?", "%#{query}%") 
+     where("productname like ?", "%#{query}%") 
   end
   
   def self.import(file)

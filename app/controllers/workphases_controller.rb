@@ -14,12 +14,17 @@ class WorkphasesController < ApplicationController
   # GET /workphases
   # GET /workphases.json
   def view
-
     @workphases = Workphase.all
+    
     if params[:search]
-      @products = Product.search(params[:search]).order("productname ASC")
+      @workphases = Workphase.search(params[:search])
     else
-      @products = Product.all.order("productname ASC")
+      @workphases = Workphase.all
+    end
+    if params[:query]
+      @workphases = Workphase.search(params[:query])
+    else
+      @workphases = Workphase.all
     end
   end
   

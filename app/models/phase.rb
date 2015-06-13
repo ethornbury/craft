@@ -7,4 +7,5 @@ class Phase < ActiveRecord::Base
     # return an similar match of the query
        where("phasename like ?", "%#{query}%") 
   end
+ 
 end
