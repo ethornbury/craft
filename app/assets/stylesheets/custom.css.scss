@@ -96,6 +96,17 @@ input {
   padding:10%;
 }
 
+.myLinkis{
+ text-shadow: 1px 0px 1px #191919;
+ font-style: italic;
+ color: #00CCCC;
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active{
+   color: #000;
+  }
+}
 .myLinki{
  font-style: italic;
  color: #00CCCC;
@@ -171,4 +182,7 @@ input {
 }
 .headings{
   font-weight: bold;
+}
+blockquote{
+  text-shadow: 1px 1px 1px #191919;
 }
