@@ -3,21 +3,22 @@ class WorkphasesController < ApplicationController
   before_action :authenticate_user! 
   before_action :ensure_admin, only: [:destroy]
 
-  delegate :fullname, to: :employee, prefix: true #facillitates => @workphase.employee_fullname
+  delegate :fullname,     to: :employee, prefix: true #facillitates => @workphase.employee_fullname
+  delegate :firstname,    to: :employee, prefix: true
   delegate :lastname,     to: :employee, prefix: true
   delegate :phasename,    to: :phase,    prefix: true
   delegate :productname,  to: :product,  prefix: true
   # the above delegate lines allow for the 'lastname' field from 'employee' table to used
-  
-  respond_to :html, :json
+  respond_to :json, :html
   
   # GET /workphases
   # GET /workphases.json
   
   def view
-    
+    #employee_id = current_user.id
     #@workphases = Workphase.all
     @workphases = Workphase.search(params[:search])
+    
   end
   
   def index
@@ -64,8 +65,9 @@ class WorkphasesController < ApplicationController
   def update
     respond_to do |format|
       if @workphase.update(workphase_params)
+        format.json { respond_with_bip(@workphase) } #this is added as best_in_place update wasn't holding
         format.html { redirect_to @workphase, notice: 'Workphase was successfully updated.' }
-        format.json { render :show, status: :ok, location: @workphase }
+        #format.json { render :show, status: :ok, location: @workphase }
       else
         format.html { render :edit }
         format.json { render json: @workphase.errors, status: :unprocessable_entity }

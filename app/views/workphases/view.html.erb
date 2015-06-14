@@ -1,59 +1,55 @@
 <% provide(:title, 'View CraftWork') %>
 
   <div class="page-header">
-    <!--
-    <%#= link_to work_path, class: 'btn btn-default' do %>
-    <%#= link_to products_path, class: 'btn btn-default' do %>
-      <span class="glyphicon glyphicon-list-alt"></span>
-      Back
-    <%# end %>
-    <%#= link_to @product, class: 'btn btn-custom' do %>
-      <span class="glyphicon glyphicon-info-sign"></span>
-      Show
-    <%# end %>
-    -->
-  
-  <div class="col-md-6 pull-right">
-    <%= form_tag(work_path, :method => "get", class: "navbar-form", id: "search-form") do %>
-        <div class="input-group col-md-7">
-           <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search" %>
-              <div class="input-group-btn">
-                  <button class="btn btn-default" type="submit">
-                    <i class="glyphicon glyphicon-search"></i>
-                  </button>
-              </div>
-          </div>
-    <% end %>
-  </div>
-
-
+    <div class="col-md-6 pull-right">
+      <%= form_tag(work_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+          <div class="input-group col-md-7">
+             <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search on Phase by Id" %>
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </div>
+            </div>
+      <% end %>
+    </div>
     <h1>CraftWork</h1>
   </div>
-  
-  <%#= render 'workphases/phase' %>
-  
-  
-<p>Click on the total values to edit them.</p>
+  <!-- debug helpers
+ <pre>employee id<%#= @employee_id.to_yaml %></pre>   
+ <pre>current_user.id<%#= current_user.id.to_yaml %></pre>
+ <pre>current_user/email<%#= current_user.email.to_yaml %></pre>
+ -->
+<p>Click on values to edit them in place.</p>
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-        <th>Product</th>
-        <th>Phase</th>
-        <th>Total</th>
-        <th>Employee</th>
-        <th>Comments</th>
+        <th>Id </th>
+        <th>Product: Id</th>
+        <th>Phase: Id</th>
+        <th>Total Req</th>
+        <th>Admin Note</th>
+        <th>Total Made <i>(edit)</i></th>
+        <th>My Id <i>(edit)</i></th>
+        <th>Comment <i>(edit)</i></th>
+        <th>Date <i>(edit)</i></th>
       </tr>
     </thead>
 
     <tbody>
       <%= content_tag_for(:tr, @workphases) do |workphase| %>
+        
+        <td><%= workphase.id %></td>
         <td><%= workphase.product.productname %>: <%= workphase.product_id %></td>
         <td><%= workphase.phase.phasename %>: <%= workphase.phase_id %></td>
-        <td><%= best_in_place workphase, :totalToMake %></td>
-        <td><%#= workphase.employee.firstname %> <%#= workphase.employee.lastname %>: <%= workphase.employee_id %></td>
-        <td><%= workphase.worknote %></td>
+        <td><%= workphase.totalToMake %></td>
+        <td><%= workphase.adminNote %></td>
+        <td><%= best_in_place workphase, :totalMade %></td>
+        <td><%= best_in_place workphase, :employee_id %></td>
+        <td><%= best_in_place workphase, :worknote, type: :textarea %></td>
+        <td><%= best_in_place workphase, :dateComplete %></td>
       <% end %>
     </tbody>
   </table>

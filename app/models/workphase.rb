@@ -16,9 +16,8 @@ class Workphase < ActiveRecord::Base
     end
   end
   
-
   def self.search(query)
     # return an similar match of the query
-      where("product_id like ?", "%#{query}%") 
+      where("phase_id like ?", "%#{query}%") 
   end
 end
