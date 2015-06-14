@@ -9,14 +9,15 @@
 /* debug box  */
 
 .debug_dump {
+  /* style for debug box, code in application.html.erb */
   clear: both;
   float: left;
   width: 100%;
   margin-top: 45px;
    @include box_sizing;
- 
 }
-/* footer */
+
+/* footer styling */
 
 footer {
   margin-top: 45px;
@@ -38,7 +39,7 @@ footer {
     }
   }
 }
-/* universal */
+/* universal styling */
 
 body {
   padding-top: 60px;
@@ -49,9 +50,7 @@ body {
   display: -ms-flexbox;   /* MID: IE 10 */
   display: -webkit-flex;  /* NEW, Chrome 21–28, Safari 6.1+ */
   display: flex;          /* NEW: IE11, Chrome 29+, Opera 12.1+, Firefox 22+ */
-   
-   align-items: center;
-   justify-content: left;
+
 }
 
 section {
@@ -135,70 +134,7 @@ input {
 .content{
   padding: 30px 0 30px 0;
 }
-.section {
-   /* removed other styles to save space */
-   -prefix-box-flex: 1; /* old spec webkit, moz */
-   flex: 1;
-   &:hover {
-   -prefix-box-flex: 2;
-   flex: 2;
-   cursor: pointer;
-  }
-}
-.flexcontainerR {
-	display: -webkit-flex;
-	display: flex;
-	background-color: #00CCCC;
-	-webkit-flex-direction: row;
-	flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-   -webkit-flex-flow: row wrap;
-   flex-flow: row wrap;
-   /* Or do it all in one line with flex flow 
-   -webkit-flex-flow: row wrap;
-   flex-flow: row wrap;*/
-   /* tweak the where items line up on the row */
-   /* valid values are: flex-start, flex-end, space-between, space-around, stretch */
-   -webkit-align-content: flex-end;
-   align-content: flex-end;
 
-		}
-		
-.smallitem {
-  min-width: 0px;
-  -webkit-flex: 1 0 0;
-  flex: 1 0 0;
-  padding: 7px;
-  width: 20%;
-  background-color: white;
-  border-radius: 3px; 
-  margin:5px;
-}
-.bigitem {
-	min-width: 0px;
-  /* This will be twice as big as the small item. */
-  -webkit-flex: 2 0 0; 
-  flex: 2 0 0; 
-  padding: 7px;
-  width: 20%;
-  background-color: white;
-	border-radius: 3px; 
-	margin:5px;
-}
-.order1 {
-  order: 1;
-}
-.order2 {
-  order: 2;
-}
-.order3 {
-  order: 3;
-}
-.orderWrap{
-   -webkit-align-content: flex-end;
-   align-content: flex-end;
-}
 .flex-outside{
   border: 2px solid #626262 ;
   border-radius: 5px;

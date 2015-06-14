@@ -9,13 +9,12 @@ class WorkphasesController < ApplicationController
   delegate :phasename,    to: :phase,    prefix: true
   delegate :productname,  to: :product,  prefix: true
   # the above delegate lines allow for the 'lastname' field from 'employee' table to used
-  respond_to :json, :html
+  respond_to :json, :html  #specify json for the best_in_place edit funtion
   
   # GET /workphases
   # GET /workphases.json
   
   def view
-    #employee_id = current_user.id
     #@workphases = Workphase.all
     @workphases = Workphase.search(params[:search])
     
@@ -65,7 +64,7 @@ class WorkphasesController < ApplicationController
   def update
     respond_to do |format|
       if @workphase.update(workphase_params)
-        format.json { respond_with_bip(@workphase) } #this is added as best_in_place update wasn't holding
+        format.json { respond_with_bip(@workphase) } #this is added as best_in_place update wasn't holding with original line below
         format.html { redirect_to @workphase, notice: 'Workphase was successfully updated.' }
         #format.json { render :show, status: :ok, location: @workphase }
       else

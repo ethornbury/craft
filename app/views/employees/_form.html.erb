@@ -1,12 +1,12 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    
- <pre>employee id<%= @employee.id.to_yaml %></pre>   
- <pre>employee/user_id<%= @employee.user_id.to_yaml %></pre>
- <pre>employee/email<%= @employee.email.to_yaml %></pre>
- <pre>current_user/email<%= current_user.email.to_yaml %></pre>
- 
+<!--    
+ <pre>employee id<%#= @employee.id.to_yaml %></pre>   
+ <pre>employee/user_id<%#= @employee.user_id.to_yaml %></pre>
+ <pre>employee/email<%#= @employee.email.to_yaml %></pre>
+ <pre>current_user/email<%#= current_user.email.to_yaml %></pre>
+--> 
     <%= form_for(@employee, html: { class: "form-horizontal", role: "form" }) do |f| %>
       <% if @employee.errors.any? %>
         <div class="alert alert-danger alert-dismissable" role="alert">
@@ -53,7 +53,6 @@
       
       <div class="form-group">
         <%= f.label :role %><i> (select one from list)</i>
-          <%#= f.text_field :role, class: "form-control" %>
            <%= f.select(:role, options_for_select([['Thrower', 'Thrower'],
                                   ['Part-time thrower', 'Part-time thrower'],
                                   ['Caster', 'Caster'],
@@ -68,7 +67,6 @@
       <% if current_user.try(:admin?) %> <!-- only visible to admin user --> 
         <div class="form-group">
           <%= f.label :status %><i> (select one from list)</i>
-            <%#= f.text_field :status, class: "form-control" %>
             <%= f.select(:status, options_for_select([['Staff', 'Staff'],
                                   ['Manager', 'Manager'],
                                   ['Admin', 'Admin']]), 

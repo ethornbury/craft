@@ -11,7 +11,7 @@ class PhasesController < ApplicationController
     else
       @phases = Phase.all.order("phasename ASC")
     end
-    #@phases = Phase.all
+    #@phases = Phase.all  #original created by scaffold
   end
 
   # GET /phases/1

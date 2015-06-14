@@ -93,15 +93,13 @@ class EmployeesController < ApplicationController
   end
   
   def import
-    #flash.clear
+    #flash.clear this was to empty the flash message container but fixed
     respond_to do |format|
       begin 
         Employee.import(params[:file])
-        #redirect_to employees_path, flash[:notice] = "Employees added successully"
         format.html { redirect_to employees_url, notice: 'Employees added successfully.' }
         format.json { head :no_content }
       rescue
-        #redirect_to employees_path, flash[:danger] = "Invalid import, check your CSV file."
         format.html { redirect_to employees_url, notice: 'Invalid import, check your CSV file.' }
         format.json { render json: @employee.errors, status: :unprocessable_entity }
       end

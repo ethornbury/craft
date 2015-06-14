@@ -42,7 +42,7 @@
   -->
     <div class="flex-item"><%= workphase.product.productname %>: <%= workphase.product_id %></div>
     <div class="flex-item"><%= workphase.phase.phasename %>: <%= workphase.phase_id %></div>
-    <div class="flex-item"><%= workphase.totalToMake %></div>
+    <div class="flex-item">Req <%= workphase.totalToMake %></div>
     <div class="flex-item"><%= workphase.adminNote %></div>
     <div class="flex-item"><%= best_in_place workphase, :totalMade, place_holder: "(edit total)" %></div>
     <div class="flex-item"><%= best_in_place workphase, :employee_id, place_holder: "(edit id)" %></div>
