@@ -20,7 +20,7 @@
  <pre>current_user.id<%#= current_user.id.to_yaml %></pre>
  <pre>current_user/email<%#= current_user.email.to_yaml %></pre>
  -->
-  <p>Click to edit within boxes.</p>
+  <p>Click to edit within boxes. You may need to reload the page first.</p>
   <div class="flex-outside">
   <div class="flex-container headings">
     <!--
@@ -44,9 +44,9 @@
     <div class="flex-item"><%= workphase.phase.phasename %>: <%= workphase.phase_id %></div>
     <div class="flex-item">Req <%= workphase.totalToMake %></div>
     <div class="flex-item"><%= workphase.adminNote %></div>
-    <div class="flex-item"><%= best_in_place workphase, :totalMade, place_holder: "(edit total)" %></div>
-    <div class="flex-item"><%= best_in_place workphase, :employee_id, place_holder: "(edit id)" %></div>
-    <div class="flex-item"><%= best_in_place workphase, :worknote, as: :textarea, place_holder: "(edit note)" %></div>
+    <div class="flex-item best_in_place"><%= best_in_place workphase, :totalMade, place_holder: "(edit total)" %></div>
+    <div class="flex-item best_in_place"><%= best_in_place workphase, :employee_id, place_holder: "(edit id)" %></div>
+    <div class="flex-item best_in_place"><%= best_in_place workphase, :worknote, as: :textarea, place_holder: "(edit note)" %></div>
   </div>
   <% end %>
 </div>

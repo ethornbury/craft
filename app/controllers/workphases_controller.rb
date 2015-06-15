@@ -69,7 +69,8 @@ class WorkphasesController < ApplicationController
         #format.json { render :show, status: :ok, location: @workphase }
       else
         format.html { render :edit }
-        format.json { render json: @workphase.errors, status: :unprocessable_entity }
+        #format.json { render json: @workphase.errors, status: :unprocessable_entity }
+        format.json { respond_with_bip(@workphase)}
       end
     end
   end
