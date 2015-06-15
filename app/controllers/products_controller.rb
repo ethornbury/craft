@@ -72,7 +72,21 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def import
+    #flash.clear this was to empty the flash message container but fixed
+    respond_to do |format|
+      begin 
+        Product.import(params[:file])
+        format.html { redirect_to products_url, notice: 'Products added successfully.' }
+        format.json { head :no_content }
+      rescue
+        format.html { redirect_to products_url, notice: 'Invalid import, check your CSV file.' }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
+    end  
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
