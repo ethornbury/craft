@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'best_in_place', '~> 3.0.3'
+gem 'best_in_place', '~> 3.0.3',  github: 'bernat/best_in_place'
 gem 'devise'
 #bootstrap
 gem 'bootstrap-sass', '~> 3.3.4'
