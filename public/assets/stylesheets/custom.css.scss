@@ -1,0 +1,203 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+/* debug box  */
+
+.debug_dump {
+  /* style for debug box, code in application.html.erb */
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+   @include box_sizing;
+}
+
+/* footer styling */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #a3a3a3;
+  color: #777;
+  a {
+    color: #555;
+    &:hover {
+      color: #c4c4c4;
+    }
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
+/* universal styling */
+
+body {
+  padding-top: 60px;
+  height: 100%;
+  width: 100%; /* needed for Firefox */
+  display: -webkit-box;   /* OLD: Safari,  iOS, Android browser, older WebKit browsers.  */
+  display: -moz-box;      /* OLD: Firefox (buggy) */
+  display: -ms-flexbox;   /* MID: IE 10 */
+  display: -webkit-flex;  /* NEW, Chrome 21–28, Safari 6.1+ */
+  display: flex;          /* NEW: IE11, Chrome 29+, Opera 12.1+, Firefox 22+ */
+
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+.myLinkis{
+ text-shadow: 1px 0px 1px #191919;
+ font-style: italic;
+ color: #00CCCC;
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active{
+   color: #000;
+  }
+}
+.myLinki{
+ font-style: italic;
+ color: #00CCCC;
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active{
+   color: #000;
+  }
+}
+.myLink{
+ color: #00CCCC;
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active{
+   color: #000;
+  }
+}
+
+.navbar-brand{
+  color: #00CCCC !important;
+}
+/* important here cuases bootstraps colours to be overriden and mine to be used */
+
+.btn-custom{
+  background-color: #00CCCC;
+  color: #fff;
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active{
+   color: #000;
+  }
+}
+.content{
+  padding: 30px 0 30px 0;
+}
+
+.flex-outside{
+  border: 2px solid #626262 ;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #626262;
+}
+.flex-container {
+  background-color : #00CCCC;
+  padding: 1px;
+  margin: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.flex-item {
+  box-shadow: 1px 1px 5px #191919;
+  background-color: white;
+  border-radius: 4px;
+  padding: 5px;
+  width: 100px;
+  
+  margin:  10px 0 10px 0;
+  /*height: 70px;
+  line-height: 15px;
+
+  font-weight: bold;
+  font-size: 3em;*/
+  text-align: center;
+}
+.headings{
+  font-weight: bold;
+}
+blockquote{
+  text-shadow: 1px 1px 1px #191919;
+}
+/* home page*/ 
+
+.emertron{
+  /*width:60%;
+  */
+  width: 600px;
+  height:auto;
+  background-repeat:no-repeat;
+  background-image: url("studio-in-action.jpg");
+  border-radius:5px;
+  margin: 0 auto;
+  padding:10%;
+}
+.imageH { 
+  background-image: url(studio-in-action.jpg); 
+  border-radius:5px;
+  background-repeat:no-repeat;
+
+  width: 50%;
+  padding:10%;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 320px) {
+    .imageH { 
+    background-image: url(studio-in-action-sml.jpg); 
+    border-radius:5px;
+    background-repeat:no-repeat;
+    }
+}
