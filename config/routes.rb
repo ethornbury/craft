@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   get 'about'     =>  'static_pages#about'
   get 'contact'   =>  'static_pages#contact'
   get 'manager'   =>  'static_pages#manager'
-
+  get 'show_pdf'      =>  'static_pages#show_pdf'
+  get 'download_pdf'  =>  'static_pages#download_pdf'
 end

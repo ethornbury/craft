@@ -10,8 +10,13 @@
         <p>In the small studios where I worked, I saw that it was time consuming to manage stock in all its different phases of production.</p>
         <p>There wasn't anything on the market, that I could find, that addresses this.</p>
         <p>So I created this application as a possible solution.</p>
+        <p>It is deployed on Heroku here <a href="https://craftwork-app.herokuapp.com" class="myLink">Craftwork-app</a></p>
       </div>  
-      <blockquote><i>“Make it simple, but no simpler.” Albert Einstein</i></blockquote>
+      <blockquote class="myLinkis">Make it simple, but no simpler. Albert Einstein</blockquote>
       <br>
+       <br>
+      <br>
+       <%= link_to "View PDF on this App in new tab", show_pdf_path, :target => "_blank", :class =>"btn btn-default" %>
+       <%= link_to 'Download the PDF', download_pdf_path, :class => 'btn btn-default' %> 
     </div>
 </div>

@@ -15,7 +15,6 @@ class WorkphasesController < ApplicationController
   # GET /workphases.json
   
   def view
-    #employee_id = current_user.id
     #@workphases = Workphase.all
     @workphases = Workphase.search(params[:search])
     

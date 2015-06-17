@@ -19,9 +19,15 @@
 /* footer */
 
 footer {
+  position:fixed;
+  bottom:0;
+  left:10px;
+  right:10px;
+  height:60px;
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid #a3a3a3;
+  padding-bottom: 10px;
+  border-top: 1px solid #8a8a8a;
   color: #777;
   a {
     color: #555;
@@ -97,6 +103,12 @@ input {
   padding:10%;
 }
 
+.myLinkis{
+ text-shadow: 1px 0px 1px #191919;
+ font-style: italic;
+ color: #00CCCC;
+}
+
 .myLinki{
  font-style: italic;
  color: #00CCCC;
@@ -107,6 +119,7 @@ input {
    color: #000;
   }
 }
+
 .myLink{
  color: #00CCCC;
   &:hover,
@@ -132,9 +145,11 @@ input {
    color: #000;
   }
 }
+
 .content{
   padding: 30px 0 30px 0;
 }
+
 .section {
    /* removed other styles to save space */
    -prefix-box-flex: 1; /* old spec webkit, moz */
@@ -145,65 +160,13 @@ input {
    cursor: pointer;
   }
 }
-.flexcontainerR {
-	display: -webkit-flex;
-	display: flex;
-	background-color: #00CCCC;
-	-webkit-flex-direction: row;
-	flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-   -webkit-flex-flow: row wrap;
-   flex-flow: row wrap;
-   /* Or do it all in one line with flex flow 
-   -webkit-flex-flow: row wrap;
-   flex-flow: row wrap;*/
-   /* tweak the where items line up on the row */
-   /* valid values are: flex-start, flex-end, space-between, space-around, stretch */
-   -webkit-align-content: flex-end;
-   align-content: flex-end;
 
-		}
-		
-.smallitem {
-  min-width: 0px;
-  -webkit-flex: 1 0 0;
-  flex: 1 0 0;
-  padding: 7px;
-  width: 20%;
-  background-color: white;
-  border-radius: 3px; 
-  margin:5px;
-}
-.bigitem {
-	min-width: 0px;
-  /* This will be twice as big as the small item. */
-  -webkit-flex: 2 0 0; 
-  flex: 2 0 0; 
-  padding: 7px;
-  width: 20%;
-  background-color: white;
-	border-radius: 3px; 
-	margin:5px;
-}
-.order1 {
-  order: 1;
-}
-.order2 {
-  order: 2;
-}
-.order3 {
-  order: 3;
-}
-.orderWrap{
-   -webkit-align-content: flex-end;
-   align-content: flex-end;
-}
 .flex-outside{
   border: 2px solid #626262 ;
   border-radius: 5px;
   box-shadow: 1px 1px 5px #626262;
 }
+
 .flex-container {
   background-color : #00CCCC;
   padding: 1px;
@@ -235,4 +198,27 @@ input {
 }
 .headings{
   font-weight: bold;
+}
+
+blockquote {
+  font-size: 2em;
+  text-shadow: 1px 1px 1px #191919;
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
+  display: inline;
 }
