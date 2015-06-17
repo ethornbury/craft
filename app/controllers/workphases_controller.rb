@@ -48,6 +48,7 @@ class WorkphasesController < ApplicationController
   # GET /workphases/1/edit
   def edit
   end
+ 
 
   # POST /workphases
   # POST /workphases.json
@@ -70,13 +71,13 @@ class WorkphasesController < ApplicationController
   def update
     respond_to do |format|
       if @workphase.update(workphase_params)
-        format.json { respond_with_bip(@workphase) } #this is added as best_in_place update wasn't holding with original line below
+        #format.json { respond_with_bip(@workphase) } #this is added as best_in_place update wasn't holding with original line below
         format.html { redirect_to @workphase, notice: 'Workphase was successfully updated.' }
-        #format.json { render :show, status: :ok, location: @workphase }
+        format.json { render :show, status: :ok, location: @workphase }
       else
         format.html { render :edit }
-        #format.json { render json: @workphase.errors, status: :unprocessable_entity }
-        format.json { respond_with_bip(@workphase)}
+        format.json { render json: @workphase.errors, status: :unprocessable_entity }
+        #format.json { respond_with_bip(@workphase)}
       end
     end
   end

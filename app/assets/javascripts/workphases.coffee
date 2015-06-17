@@ -6,3 +6,7 @@ $(document).ready(function() {
   /* Activating Best In Place */
   jQuery(".best_in_place").best_in_place();
 });
+
+$('.editable').editable();
+jQuery.fn.editable.defaults.mode = 'inline';
+jQuery.fn.editable.defaults.ajaxOptions = {type: "PUT"};

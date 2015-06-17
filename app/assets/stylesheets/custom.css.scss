@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "editable/bootstrap-editable";
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;

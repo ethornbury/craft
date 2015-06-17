@@ -12,11 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.purr
-//= require best_in_place
-//= require best_in_place.jquery-ui
+//= require jquery-editable
 //= require turbolinks
 //= require bootstrap
+
+
+$('.editable').editable();
+jQuery.fn.editable.defaults.mode = 'inline';
+jQuery.fn.editable.defaults.ajaxOptions = {type: "PUT"};
+
 
 $(document).ready(function() {
   /* Activating Best In Place */
