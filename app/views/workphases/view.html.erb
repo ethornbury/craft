@@ -1,5 +1,12 @@
 <% provide(:title, 'View CraftWork') %>
 
+<script type="text/javascript">
+   $(document).ready(function() {
+    /* Activating Best In Place */
+    jQuery(".best_in_place").best_in_place();
+  }); 
+
+</script>
   <div class="page-header">
     <div class="col-md-6 pull-right">
       <%= form_tag(work_path, :method => "get", class: "navbar-form", id: "search-form") do %>
@@ -44,9 +51,9 @@
     <div class="flex-item"><%= workphase.phase.phasename %>: <%= workphase.phase_id %></div>
     <div class="flex-item">Req <%= workphase.totalToMake %></div>
     <div class="flex-item"><%= workphase.adminNote %></div>
-    <div class="flex-item best_in_place"><%= best_in_place workphase, :totalMade, place_holder: "(edit total)" %></div>
-    <div class="flex-item best_in_place"><%= best_in_place workphase, :employee_id, place_holder: "(edit id)" %></div>
-    <div class="flex-item best_in_place"><%= best_in_place workphase, :worknote, as: :textarea, place_holder: "(edit note)" %></div>
+    <div class="flex-item best_in_place"><%= best_in_place workphase, :totalMade, :as => :input, place_holder: "(edit total)" %></div>
+    <div class="flex-item best_in_place"><%= best_in_place workphase, :employee_id, :as => :input, place_holder: "(edit id)" %></div>
+    <div class="flex-item best_in_place"><%= best_in_place workphase, :worknote, :as => :textarea, place_holder: "(edit note)" %></div>
   </div>
   <% end %>
 </div>

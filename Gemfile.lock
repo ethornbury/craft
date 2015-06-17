@@ -189,7 +189,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  best_in_place (~> 3.0.3)!
+  best_in_place!
   bootstrap-generators (~> 3.3.1)
   bootstrap-sass (~> 3.3.4)
   bootstrap-will_paginate (= 0.0.10)
