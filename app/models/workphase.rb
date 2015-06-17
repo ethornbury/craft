@@ -20,4 +20,6 @@ class Workphase < ActiveRecord::Base
     # return an similar match of the query
       where("phase_id like ?", "%#{query}%") 
   end
+  
+  
 end
