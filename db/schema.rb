@@ -14,15 +14,15 @@
 ActiveRecord::Schema.define(version: 20150614065654) do
 
   create_table "employees", force: :cascade do |t|
-    t.string   "firstname"
-    t.string   "lastname"
+    t.integer  "user_id"
+    t.string   "firstname",                  null: false
+    t.string   "lastname",                   null: false
     t.string   "add1"
     t.string   "add2"
     t.string   "add3"
     t.string   "role"
     t.string   "status"
     t.boolean  "admin",      default: false
-    t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.string   "email"
@@ -40,16 +40,6 @@ ActiveRecord::Schema.define(version: 20150614065654) do
   create_table "products", force: :cascade do |t|
     t.string   "productname", null: false
     t.string   "desc",        null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "searches", force: :cascade do |t|
-    t.string   "keywords"
-    t.string   "phasename"
-    t.string   "productname"
-    t.integer  "phase_id"
-    t.integer  "product_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -75,14 +65,14 @@ ActiveRecord::Schema.define(version: 20150614065654) do
 
   create_table "workphases", force: :cascade do |t|
     t.string   "worknote"
-    t.integer  "totalToMake",  null: false
+    t.integer  "totalToMake",  default: 0, null: false
     t.datetime "dateChanged"
     t.integer  "product_id"
     t.integer  "phase_id"
     t.integer  "employee_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "totalMade"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "totalMade",    default: 0, null: false
     t.datetime "dateComplete"
     t.string   "adminNote"
   end

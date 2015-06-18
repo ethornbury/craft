@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end 
   resources :phases
   get 'work'      =>  'workphases#view'
+  get 'work-all'  =>  'workphases#viewmain'
   get 'about'     =>  'static_pages#about'
   get 'contact'   =>  'static_pages#contact'
   get 'manager'   =>  'static_pages#manager'

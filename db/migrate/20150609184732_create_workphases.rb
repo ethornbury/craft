@@ -2,7 +2,7 @@ class CreateWorkphases < ActiveRecord::Migration
   def change
     create_table :workphases do |t|
       t.string :worknote
-      t.integer :total, null: false
+      t.integer :total, null: false, default: 0
       t.datetime :dateChanged
       t.references :product, index: true
       t.references :phase, index: true

@@ -19,6 +19,9 @@ class WorkphasesController < ApplicationController
     @workphases = Workphase.search(params[:search])
 
   end
+  def viewmain
+     @workphases = Workphase.search(params[:search])
+  end 
   
   def index
     @workphases = Workphase.all
