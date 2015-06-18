@@ -1,47 +1,48 @@
 <% provide(:title, 'View CraftWork') %>
 
   <div class="page-header">
-  <%= link_to work_all_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
-  <% end %>
-  
-  <h1>CraftWork</h1>
-</div>
+    <%= link_to work_all_path, class: 'btn btn-default' do %>
+      <span class="glyphicon glyphicon-list-alt"></span>
+      Back
+    <% end %>
+    <h1>CraftWork</h1>
+  </div>
   <!-- debug helpers
  <pre>employee id<%#= @employee_id.to_yaml %></pre>   
  <pre>current_user.id<%#= current_user.id.to_yaml %></pre>
  <pre>current_user/email<%#= current_user.email.to_yaml %></pre>
  -->
   <p>Click to edit within boxes. You may need to reload the page.</p>
+  
+<!--  <p>Click to edit within boxes. You may need to reload the page.</p>
+ -->
   <div class="flex-outside">
-  <div class="flex-container headings">
-
-    <div class="flex-item">Product: Id</div>
-    <div class="flex-item">Phase: Id</div>
-    <div class="flex-item">Total Req</div>
-    <div class="flex-item">Admin Note</div>
-    <div class="flex-item">Total Made</div>
-    <div class="flex-item">My Id</div>
-    <div class="flex-item">Comment</div>
-  </div>
+    <div class="flex-container">
+      <div class="flex-item headings">Phase</div>
+      <div class="flex-item headings">Product</div>
+      <div class="flex-item headings">Total Req</div>
+      <div class="flex-item headings">Admin Note</div>
+      <div class="flex-item headings">Total Made</div>
+      <div class="flex-item headings">My Id</div>
+      <div class="flex-item headings">Comment</div>
+    </div>
   
   <% totalRequired = 0 %><% totalCompleted = 0 %>  
    
   <%= content_tag_for(:tr, @workphases) do |workphase| %>
-  <div class="flex-container"> 
- 
-    <div class="flex-item"><%= workphase.product.productname %>: <%= workphase.product_id %></div>
-    <div class="flex-item"><%= workphase.phase.phasename %>: <%= workphase.phase_id %></div>
-    <div class="flex-item"><%= workphase.totalToMake %></div>
-    <div class="flex-item"><%= workphase.adminNote %></div>
-    <div class="flex-item"><%= best_in_place workphase, :totalMade, place_holder: "(edit total)" %></div>
-    <div class="flex-item"><%= best_in_place workphase, :employee_id, place_holder: "(edit id)" %></div>
-    <div class="flex-item"><%= best_in_place workphase, :worknote, as: :textarea, place_holder: "(edit note)" %></div>
-  </div>
+    <div class="flex-container"> 
+      <div class="flex-item"><%= workphase.phase.phasename %> <%#= workphase.phase_id %></div>
+      <div class="flex-item"><%= workphase.product.productname %> <%#= workphase.product_id %></div>
+      <div class="flex-item"><%= workphase.totalToMake %></div>
+      <div class="flex-item"><%= workphase.adminNote %></div>
+      <div class="flex-item"><%= best_in_place workphase, :totalMade, place_holder: "(edit total)" %></div>
+      <div class="flex-item"><%= best_in_place workphase, :employee_id, place_holder: "(edit id)" %></div>
+      <div class="flex-item"><%= best_in_place workphase, :worknote, as: :textarea, place_holder: "(edit note)" %></div>
+    </div>
   <% totalRequired = totalRequired  + workphase.totalToMake %>
   <% totalCompleted = totalCompleted  + workphase.totalMade %>  
   <% end %>
+  
 </div>
 <p>Total Required: <%= totalRequired %></p>
-  <p>Total Complete: <%= totalCompleted %></p> 
+<p>Total Complete: <%= totalCompleted %></p> 

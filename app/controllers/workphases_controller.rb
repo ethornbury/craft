@@ -1,8 +1,9 @@
 class WorkphasesController < ApplicationController
   before_action :set_workphase, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user! 
-  before_action :ensure_admin, only: [:destroy]
-
+  #before_action :ensure_admin, only: [:destroy]
+  before_action :ensure_admin, except: [:index, :view, :viewmain]
+    
   delegate :fullname,     to: :employee, prefix: true #facillitates => @workphase.employee_fullname
   delegate :firstname,    to: :employee, prefix: true
   delegate :lastname,     to: :employee, prefix: true
