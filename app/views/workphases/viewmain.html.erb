@@ -1,0 +1,46 @@
+<% provide(:title, 'View All CraftWork') %>
+
+  <div class="page-header">
+    <div class="col-md-6 pull-right">
+      <%= form_tag(work_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+          <div class="input-group col-md-7">
+             <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search on Phase by Id" %>
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </div>
+            </div>
+      <% end %>
+    </div>
+    <h1>CraftWork All</h1>
+  </div>
+  <!-- debug helpers
+ <pre>employee id<%#= @employee_id.to_yaml %></pre>   
+ <pre>current_user.id<%#= current_user.id.to_yaml %></pre>
+ <pre>current_user/email<%#= current_user.email.to_yaml %></pre>
+ -->
+  <p>Click to edit within boxes. You may need to reload the page.</p>
+  <div class="flex-outside">
+      <div class="flex-container">
+        <div class="flex-item headings">Phase: Id</div>
+        <div class="flex-item headings">Product</div>
+        <div class="flex-item headings">Total Req</div>
+        <div class="flex-item headings">Admin Note</div>
+        <div class="flex-item headings">Total Made</div>
+        <div class="flex-item headings">My Id</div>
+        <div class="flex-item headings">Comment</div>
+      </div>
+   
+    <%= content_tag_for(:tr, @workphases) do |workphase| %>
+      <div class="flex-container">
+        <div class="flex-item"><%= workphase.phase.phasename %>: <%= workphase.phase_id %></div>
+        <div class="flex-item"><%= workphase.product.productname %> <%#= workphase.product_id %></div>
+        <div class="flex-item"><%= workphase.totalToMake %></div>
+        <div class="flex-item"><%= workphase.adminNote %></div>
+        <div class="flex-item"><%= best_in_place workphase, :totalMade, place_holder: "(edit total)" %></div>
+        <div class="flex-item"><%= best_in_place workphase, :employee_id, place_holder: "(edit id)" %></div>
+        <div class="flex-item"><%= best_in_place workphase, :worknote, as: :textarea, place_holder: "(edit note)" %></div>
+      </div>
+    <% end %>
+  </div>
