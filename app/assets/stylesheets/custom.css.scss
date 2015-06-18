@@ -19,8 +19,8 @@
 /* footer */
 
 footer {
-  position:fixed;
-  bottom:0;
+  position:absolute;
+  bottom: 0;
   left:10px;
   right:10px;
   height:60px;
@@ -47,17 +47,26 @@ footer {
 /* universal */
 
 body {
+  margin:0;
+	padding:0;
+	height:100%;
   padding-top: 60px;
-  height: 100%;
+  
   width: 100%; /* needed for Firefox */
   display: -webkit-box;   /* OLD: Safari,  iOS, Android browser, older WebKit browsers.  */
   display: -moz-box;      /* OLD: Firefox (buggy) */
   display: -ms-flexbox;   /* MID: IE 10 */
   display: -webkit-flex;  /* NEW, Chrome 21–28, Safari 6.1+ */
   display: flex;          /* NEW: IE11, Chrome 29+, Opera 12.1+, Firefox 22+ */
-   
+  /* 
    align-items: center;
    justify-content: left;
+   */
+}
+
+.container{
+  height: 100%;
+  position: relative;
 }
 
 section {
