@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-
+  has_many  :workphases
   validates :productname,  presence: true, length: { maximum: 100 }
   validates :desc,  presence: true, length: { maximum: 255 } #255 is limit of string field
   

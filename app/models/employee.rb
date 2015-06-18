@@ -1,5 +1,6 @@
 class Employee < ActiveRecord::Base
   belongs_to :user
+  has_many   :workphases
 
   #validates :firstname,  presence: true,length: { maximum: 80 }
   validates :firstname,  

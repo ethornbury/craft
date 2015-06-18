@@ -37,7 +37,6 @@ class EmployeesController < ApplicationController
 
   # GET /employees/1/edit
   def edit
-    
   end
 
   # POST /employees

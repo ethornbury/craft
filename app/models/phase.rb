@@ -1,5 +1,5 @@
 class Phase < ActiveRecord::Base
-
+  has_many  :workphases
   validates :phasename,  presence: true, length: { maximum: 100 }
   validates :note,  presence: true, length: { maximum: 255 } #255 is limit of string field
   

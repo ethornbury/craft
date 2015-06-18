@@ -16,34 +16,7 @@
    @include box_sizing;
  
 }
-/* footer */
 
-footer {
-  position:absolute;
-  bottom: 0;
-  left:10px;
-  right:10px;
-  height:60px;
-  margin-top: 45px;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  border-top: 1px solid #8a8a8a;
-  color: #777;
-  a {
-    color: #555;
-    &:hover {
-      color: #c4c4c4;
-    }
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 15px;
-    }
-  }
-}
 /* universal */
 
 body {
@@ -67,6 +40,44 @@ body {
 .container{
   height: 100%;
   position: relative;
+}
+
+.btn-custom{
+  background-color: #00CCCC;
+  color: #fff;
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active{
+   color: #000;
+  }
+}
+
+.myLinkis{
+ text-shadow: 1px 0px 1px #191919;
+ font-style: italic;
+ color: #00CCCC;
+}
+
+.myLinki{
+ font-style: italic;
+ color: #00CCCC;
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active{
+   color: #000;
+  }
+}
+
+.myLink{
+ color: #00CCCC;
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active{
+   color: #000;
+  }
 }
 
 section {
@@ -112,47 +123,26 @@ input {
   padding:10%;
 }
 
-.myLinkis{
- text-shadow: 1px 0px 1px #191919;
- font-style: italic;
- color: #00CCCC;
-}
+.imageH { 
+   background-image: url("studio-in-action.jpg");
+   border-radius:5px;
+   background-repeat:no-repeat;
+   width: 50%;
+   padding:10%;
+   margin: 0 auto;
+ }
+ 
+ @media only screen and (max-width: 320px) {
+     .imageH { 
+     background-image: url("studio-in-action-sml.jpg");
+     border-radius:5px;
+     background-repeat:no-repeat;
+     }
+ }
 
-.myLinki{
- font-style: italic;
- color: #00CCCC;
-  &:hover,
-  &:focus,
-  &.focus,
-  &:active{
-   color: #000;
-  }
-}
-
-.myLink{
- color: #00CCCC;
-  &:hover,
-  &:focus,
-  &.focus,
-  &:active{
-   color: #000;
-  }
-}
-
+ /* giving the app name in nav bar a colour to stand out. Important here overrides bootstrap */
 .navbar-brand{
   color: #00CCCC !important;
-}
-/* important here cuases bootstraps colours to be overriden and mine to be used */
-
-.btn-custom{
-  background-color: #00CCCC;
-  color: #fff;
-  &:hover,
-  &:focus,
-  &.focus,
-  &:active{
-   color: #000;
-  }
 }
 
 .content{
@@ -169,6 +159,8 @@ input {
    cursor: pointer;
   }
 }
+
+/* work page */
 
 .flex-outside{
   border: 2px solid #626262 ;
@@ -205,9 +197,12 @@ input {
   font-size: 3em;*/
   text-align: center;
 }
+
 .headings{
   font-weight: bold;
 }
+
+/* about page */
 
 blockquote {
   font-size: 2em;
@@ -218,6 +213,7 @@ blockquote {
   padding: 0.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
 }
+
 
 blockquote:before {
   color: #ccc;
@@ -230,4 +226,33 @@ blockquote:before {
 
 blockquote p {
   display: inline;
+}
+
+/* footer */
+
+footer {
+  position:absolute;
+  bottom: 0;
+  left:10px;
+  right:10px;
+  height:60px;
+  margin-top: 45px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  border-top: 1px solid #8a8a8a;
+  color: #777;
+  a {
+    color: #555;
+    &:hover {
+      color: #c4c4c4;
+    }
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
 }
