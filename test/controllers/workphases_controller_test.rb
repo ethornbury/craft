@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class WorkphasesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+  
   setup do
     @workphase = workphases(:one)
   end
@@ -18,7 +20,7 @@ class WorkphasesControllerTest < ActionController::TestCase
 
   test "should create workphase" do
     assert_difference('Workphase.count') do
-      post :create, workphase: { dateChanged: @workphase.dateChanged, employee_id: @workphase.employee_id, phase_id: @workphase.phase_id, product_id: @workphase.product_id, total: @workphase.total, worknote: @workphase.worknote }
+      post :create, workphase: { dateChanged: @workphase.dateChanged, employee_id: @workphase.employee_id, phase_id: @workphase.phase_id, product_id: @workphase.product_id, totalToMake: @workphase.totalToMake, totalMade: @workphase.totalMade, worknote: @workphase.worknote }
     end
 
     assert_redirected_to workphase_path(assigns(:workphase))
@@ -35,7 +37,7 @@ class WorkphasesControllerTest < ActionController::TestCase
   end
 
   test "should update workphase" do
-    patch :update, id: @workphase, workphase: { dateChanged: @workphase.dateChanged, employee_id: @workphase.employee_id, phase_id: @workphase.phase_id, product_id: @workphase.product_id, total: @workphase.total, worknote: @workphase.worknote }
+    patch :update, id: @workphase, workphase: { dateChanged: @workphase.dateChanged, employee_id: @workphase.employee_id, phase_id: @workphase.phase_id, product_id: @workphase.product_id, totalToMake: @workphase.totalToMake, totalMade: @workphase.totalMade, worknote: @workphase.worknote }
     assert_redirected_to workphase_path(assigns(:workphase))
   end
 

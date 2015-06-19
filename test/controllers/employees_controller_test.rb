@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class EmployeesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
   setup do
     @employee = employees(:one)
   end
@@ -18,8 +19,9 @@ class EmployeesControllerTest < ActionController::TestCase
 
   test "should create employee" do
     assert_difference('Employee.count') do
-      post :create, employee: { add1: @employee.add1, add2: @employee.add2, add3: @employee.add3, admin: @employee.admin, firstnam: @employee.firstnam, lastname: @employee.lastname, role: @employee.role, status: @employee.status, user_id: @employee.user_id }
-    end
+      post :create, employee: { add1:"the house", add2: "the street", add3: "the city", admin: false, firstname: "John", lastname: "Doe", user_id: 3 }
+  end
+    
 
     assert_redirected_to employee_path(assigns(:employee))
   end
@@ -35,7 +37,7 @@ class EmployeesControllerTest < ActionController::TestCase
   end
 
   test "should update employee" do
-    patch :update, id: @employee, employee: { add1: @employee.add1, add2: @employee.add2, add3: @employee.add3, admin: @employee.admin, firstnam: @employee.firstnam, lastname: @employee.lastname, role: @employee.role, status: @employee.status, user_id: @employee.user_id }
+    patch :update, id: @employee, employee: { add1:"the house", add2: "the street", add3: "the city", admin: false, firstname: "John", lastname: "Doe", role: "thrower", status: "staff" }
     assert_redirected_to employee_path(assigns(:employee))
   end
 

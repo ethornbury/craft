@@ -6,7 +6,11 @@ class Workphase < ActiveRecord::Base
   validates :totalToMake,  
             :presence => {:message => "must be provided"},
             :numericality => {greater_than: 0, :message => "must be greater than 0"}
-  
+  validates :product_id,
+            :presence => {:message => "can't be empty" }
+  validates :phase_id,
+            :presence => {:message => "can't be empty" }
+
   def self.to_csv
     CSV.generate do |csv|
       csv << column_names

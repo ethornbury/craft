@@ -1,17 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  worknote: MyString
-  total: 1
+  totalToMake: 1
   dateChanged: 2015-06-09 18:47:32
-  product_id: 
-  phase_id: 
-  employee_id: 
+  product_id: 1
+  phase_id: 1
+  employee_id: 1
 
 two:
-  worknote: MyString
-  total: 1
+  totalToMake: 1
   dateChanged: 2015-06-09 18:47:32
-  product_id: 
-  phase_id: 
-  employee_id: 
+  product_id: 2
+  phase_id: 2
+  employee_id: 2

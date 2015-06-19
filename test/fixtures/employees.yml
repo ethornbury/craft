@@ -1,23 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  firstnam: MyString
-  lastname: MyString
-  add1: MyString
-  add2: MyString
-  add3: MyString
-  role: MyString
-  status: MyString
-  admin: false
-  user_id: 
+  firstname: admin
+  lastname: user
+  admin: true
+  user_id: 1
+  email: admin@email.com
 
 two:
-  firstnam: MyString
-  lastname: MyString
-  add1: MyString
-  add2: MyString
-  add3: MyString
-  role: MyString
-  status: MyString
+  firstname: User1
+  lastname: One
   admin: false
-  user_id: 
+  user_id: 2
+  email: user1@email.com

@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  productname: MyString
-  desc: MyString
+  productname: mug
+  desc: mug
 
 two:
-  productname: MyString
-  desc: MyString
+  productname: jug
+  desc: jug

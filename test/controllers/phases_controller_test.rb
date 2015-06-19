@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class PhasesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+  
   setup do
     @phase = phases(:one)
   end
@@ -18,7 +20,7 @@ class PhasesControllerTest < ActionController::TestCase
 
   test "should create phase" do
     assert_difference('Phase.count') do
-      post :create, phase: { note: @phase.note, phasename: @phase.phasename }
+      post :create, phase: { note: "note here", phasename: "phase 1" }
     end
 
     assert_redirected_to phase_path(assigns(:phase))
@@ -35,7 +37,7 @@ class PhasesControllerTest < ActionController::TestCase
   end
 
   test "should update phase" do
-    patch :update, id: @phase, phase: { note: @phase.note, phasename: @phase.phasename }
+    patch :update, id: @phase, phase: { note: "the note", phasename: "phase one" }
     assert_redirected_to phase_path(assigns(:phase))
   end
 
