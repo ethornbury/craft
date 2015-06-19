@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   get 'manager'   =>  'static_pages#manager'
   get 'show_pdf'      =>  'static_pages#show_pdf'
   get 'download_pdf'  =>  'static_pages#download_pdf'
+  get 'work_all'  =>  'workphases#viewmain'
+  get 'work'      =>  'workphases#view'
 end

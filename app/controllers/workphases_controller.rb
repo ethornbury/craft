@@ -15,10 +15,11 @@ class WorkphasesController < ApplicationController
   # GET /workphases.json
   
   def view
-    #@workphases = Workphase.all
     @workphases = Workphase.search(params[:search])
-    
   end
+  def viewmain
+    @workphases = Workphase.all 
+  end 
   
   def index
     @workphases = Workphase.all
