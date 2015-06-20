@@ -18,13 +18,11 @@ class WorkphasesController < ApplicationController
     @workphases = Workphase.search(params[:search])
   end
   def viewmain
-    @workphases = Workphase.all 
+    @workphases = Workphase.all
   end 
   
   def index
     @workphases = Workphase.all
-    #Workphase.find(params[:id])
-    #Workphase.find(all)
     respond_to do |format|
       format.html
       format.csv { render text: @workphases.to_csv }
