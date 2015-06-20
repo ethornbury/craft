@@ -31,8 +31,8 @@
     <tbody>
       <%= content_tag_for(:tr, @workphases) do |workphase| %>
         <td scope="row"><%= workphase.id %></td>
-        <td><%= workphase.product.productname %>: <%= workphase.product_id %></td>
-        <td><%= workphase.phase.phasename %>: <%= workphase.phase_id %></td>
+        <td><%#= workphase.product.productname %>: <%#= workphase.product_id %></td>
+        <td><%#= workphase.phase.phasename %>: <%#= workphase.phase_id %></td>
         <td><%= workphase.totalToMake %></td>
         <td><%= workphase.totalMade %></td>
         <td><%= workphase.dateChanged.strftime("%d-%m-%Y") %></td>

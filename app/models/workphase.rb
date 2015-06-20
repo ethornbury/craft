@@ -1,7 +1,7 @@
 class Workphase < ActiveRecord::Base
-  belongs_to :product
-  belongs_to :phase
-  belongs_to :employee
+  has_many :products
+  has_many :phases
+  has_many :employees
   
   validates :totalToMake,  
             :presence => {:message => "must be provided"},

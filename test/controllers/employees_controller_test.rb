@@ -3,6 +3,7 @@ require 'test_helper'
 class EmployeesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   setup do
+    sign_in users(:one)
     @employee = employees(:one)
   end
 

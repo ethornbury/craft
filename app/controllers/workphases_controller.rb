@@ -23,7 +23,8 @@ class WorkphasesController < ApplicationController
   
   def index
     @workphases = Workphase.all
-    
+    #Workphase.find(params[:id])
+    #Workphase.find(all)
     respond_to do |format|
       format.html
       format.csv { render text: @workphases.to_csv }
@@ -78,7 +79,8 @@ class WorkphasesController < ApplicationController
   # DELETE /workphases/1
   # DELETE /workphases/1.json
   def destroy
-    @workphase.destroy
+    Workphase.find(params[:id]).destroy
+    #@workphase.destroy
     respond_to do |format|
       format.html { redirect_to workphases_url, notice: 'Workphase was successfully destroyed.' }
       format.json { head :no_content }

@@ -33,10 +33,10 @@
  <!--
     <div class="flex-item"><%#= workphase.id %></div>
   -->
-    <div class="flex-item"><%= workphase.product.productname || "Not avaliable" %>: <%= workphase.product_id %></div>
-    <div class="flex-item"><%= workphase.phase.phasename %>: <%= workphase.phase_id %></div>
+    <div class="flex-item"><%#= workphase.product.productname %>: <%#= workphase.product_id %></div>
+    <div class="flex-item"><%#= workphase.phase.phasename %>: <%#= workphase.phase_id %></div>
     <div class="flex-item"><%= workphase.totalToMake %></div>
-    <div class="flex-item"><%= workphase.adminNote || "Not avaliable" %></div>
+    <div class="flex-item"><%= workphase.adminNote %></div>
     <div class="flex-item"><%= best_in_place workphase, :totalMade, place_holder: "(edit total)" %></div>
     <div class="flex-item"><%= best_in_place workphase, :employee_id, place_holder: "(edit id)" %></div>
     <div class="flex-item"><%= best_in_place workphase, :worknote, as: :textarea, place_holder: "(edit note)" %></div>

@@ -12,6 +12,7 @@ class StaticPagesController < ApplicationController
   
   def manager
   end
+  
   def show_pdf
     #pdf_filename = File.join(Rails.root, "public/sample.pdf") #this option didn't work
     send_file("#{Rails.root}/public/craftwork-app.pdf",        #pdf_filename, 

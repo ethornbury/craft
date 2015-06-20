@@ -26,7 +26,7 @@
               <li><%= link_to 'Edit Profile', edit_employee_path(current_user.id) %></li>
             <% end %>
             
-            <li><%= link_to    "Work", work_path %></li>
+            <li><%= link_to    "Work", work_all_path %></li>
             
             <% if current_user.try(:admin?) %> <!-- only visible to admin user -->
               <li class="dropdown">

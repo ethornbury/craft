@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
-
+  belongs_to :workphase
+  
   validates :productname,  
             :presence => {:message => "can't be empty" },
             length: { maximum: 100 }

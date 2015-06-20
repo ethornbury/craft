@@ -4,6 +4,7 @@ class PhasesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   
   setup do
+    sign_in users(:one)
     @phase = phases(:one)
   end
 

@@ -4,6 +4,7 @@ class WorkphasesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   
   setup do
+    sign_in users(:one)
     @workphase = workphases(:one)
   end
 
@@ -11,6 +12,7 @@ class WorkphasesControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:workphases)
+    assert_select "title", "Workphase List | CraftWork"
   end
 
   test "should get new" do
