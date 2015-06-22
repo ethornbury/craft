@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  belongs_to :workphase
+  has_many :workphases
   
   validates :productname,  
             :presence => {:message => "can't be empty" },

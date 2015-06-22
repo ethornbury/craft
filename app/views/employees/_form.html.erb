@@ -1,12 +1,13 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    
- <pre>employee id<%= @employee.id.to_yaml %></pre>   
- <pre>employee/user_id<%= @employee.user_id.to_yaml %></pre>
- <pre>employee/email<%= @employee.email.to_yaml %></pre>
- <pre>current_user/email<%= current_user.email.to_yaml %></pre>
- 
+<!-- used for debugging in development to check variables being passed correctly -->
+<!--
+ <pre>employee id<%#= @employee.id.to_yaml %></pre>   
+ <pre>employee/user_id<%#= @employee.user_id.to_yaml %></pre>
+ <pre>employee/email<%#= @employee.email.to_yaml %></pre>
+ <pre>current_user/email<%#= current_user.email.to_yaml %></pre>
+--> 
     <%= form_for(@employee, html: { class: "form-horizontal", role: "form" }) do |f| %>
       <% if @employee.errors.any? %>
         <div class="alert alert-danger alert-dismissable" role="alert">

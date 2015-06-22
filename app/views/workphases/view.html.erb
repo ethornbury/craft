@@ -8,10 +8,8 @@
     <h1>CraftWork</h1>
   </div>
 
- <pre>phase id/name<%= workphase.phase_id.to_yaml %></pre>   
+ <pre>phase id/name<%#= workphase.phase_id.to_yaml %></pre>   
  <pre>current_user.id<%= current_user.id.to_yaml %></pre>
- <pre>product id/name<%= current_user.email.to_yaml %></pre>
-
 
   <p>Click to edit within boxes. You may need to reload the page.</p>
   <div class="flex-outside">
@@ -19,22 +17,21 @@
     <!--
     <div class="flex-item">Id </div>
     -->
-    <div class="flex-item">Product: Id</div>
     <div class="flex-item">Phase: Id</div>
+    <div class="flex-item">Product</div>
     <div class="flex-item">Total Req</div>
     <div class="flex-item">Admin Note</div>
     <div class="flex-item">Total Made</div>
     <div class="flex-item">My Id</div>
     <div class="flex-item">Comment</div>
   </div>
-   
   <%= content_tag_for(:tr, @workphases) do |workphase| %>
   <div class="flex-container"> 
  <!--
     <div class="flex-item"><%#= workphase.id %></div>
   -->
-    <div class="flex-item"><%#= workphase.product.productname %>: <%#= workphase.product_id %></div>
-    <div class="flex-item"><%#= workphase.phase.phasename %>: <%#= workphase.phase_id %></div>
+    <div class="flex-item"><%= workphase.phase.phasename %>: <%= workphase.phase_id %></div>
+    <div class="flex-item"><%= workphase.product.productname %>: <%#= workphase.product_id %></div>    
     <div class="flex-item"><%= workphase.totalToMake %></div>
     <div class="flex-item"><%= workphase.adminNote %></div>
     <div class="flex-item"><%= best_in_place workphase, :totalMade, place_holder: "(edit total)" %></div>

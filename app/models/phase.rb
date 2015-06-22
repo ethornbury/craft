@@ -1,5 +1,5 @@
 class Phase < ActiveRecord::Base
-  belongs_to :workphase
+  has_many :workphases
   
   validates :phasename, 
             :presence => {:message => "can't be empty" },
