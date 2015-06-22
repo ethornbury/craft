@@ -7,16 +7,12 @@
       <% end %>
     <h1>CraftWork</h1>
   </div>
-
- <pre>phase id/name<%#= workphase.phase_id.to_yaml %></pre>   
- <pre>current_user.id<%= current_user.id.to_yaml %></pre>
-
+<!-- used for debugging during development
+ <pre>workphase/phase id<%#= workphase.phase.to_yaml %></pre>   
+-->
   <p>Click to edit within boxes. You may need to reload the page.</p>
   <div class="flex-outside">
   <div class="flex-container headings">
-    <!--
-    <div class="flex-item">Id </div>
-    -->
     <div class="flex-item">Phase: Id</div>
     <div class="flex-item">Product</div>
     <div class="flex-item">Total Req</div>
@@ -25,11 +21,11 @@
     <div class="flex-item">My Id</div>
     <div class="flex-item">Comment</div>
   </div>
+  
+  <% totalRequired = 0 %><% totalCompleted = 0 %>
+    
   <%= content_tag_for(:tr, @workphases) do |workphase| %>
   <div class="flex-container"> 
- <!--
-    <div class="flex-item"><%#= workphase.id %></div>
-  -->
     <div class="flex-item"><%= workphase.phase.phasename %>: <%= workphase.phase_id %></div>
     <div class="flex-item"><%= workphase.product.productname %>: <%#= workphase.product_id %></div>    
     <div class="flex-item"><%= workphase.totalToMake %></div>
@@ -38,5 +34,9 @@
     <div class="flex-item"><%= best_in_place workphase, :employee_id, place_holder: "(edit id)" %></div>
     <div class="flex-item"><%= best_in_place workphase, :worknote, as: :textarea, place_holder: "(edit note)" %></div>
   </div>
+  <% totalRequired = totalRequired  + workphase.totalToMake %>
+  <% totalCompleted = totalCompleted  + workphase.totalMade %>  
   <% end %>
 </div>
+<p>Total Required: <%= totalRequired %></p>
+<p>Total Complete: <%= totalCompleted %></p> 

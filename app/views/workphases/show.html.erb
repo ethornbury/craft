@@ -14,10 +14,10 @@
 
 <dl class="dl-horizontal">
   <dt>Product name: Id</dt>
-  <dd><%#= workphase.product.productname %>: <%#= @workphase.product_id %></dd>
+  <dd><%= @workphase.product.productname %> <%#= @workphase.product_id %></dd>
   
   <dt>Phase name: Id</dt>
-  <dd><%#= @workphase.phase.phasename %>: <%#= @workphase.phase_id %></dd>
+  <dd><%= @workphase.phase.phasename %> <%#= @workphase.phase_id %></dd>
 
   <dt>Total required:</dt>
   <dd><%= @workphase.totalToMake %></dd>

@@ -8,21 +8,26 @@ class WorkphasesController < ApplicationController
   delegate :lastname,     to: :employee, prefix: true
   delegate :phasename,    to: :phase,    prefix: true
   delegate :productname,  to: :product,  prefix: true
-  # the above delegate lines allow for the 'lastname' field from 'employee' table to used
+  # the above delegate lines allow for the field from table to used
   respond_to :json, :html
   
   # GET /workphases
   # GET /workphases.json
   
   def view
-    @workphases = Workphase.search(params[:search])
+    @workphases = Workphase.search_by_phase(params[:search])
   end
   def viewmain
     @workphases = Workphase.all
   end 
   
   def index
-    @workphases = Workphase.all
+    #@workphases = Workphase.all
+    if params[:search]
+      @workphases = Workphase.search_by_product(params[:search])
+    else
+      @workphases = Workphase.all
+    end
     respond_to do |format|
       format.html
       format.csv { render text: @workphases.to_csv }

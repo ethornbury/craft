@@ -5,6 +5,19 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Workphase
   <% end %>
+ 
+    <div class="col-md-6 pull-right">
+    <%= form_tag(workphases_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+        <div class="input-group col-md-7">
+           <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search by Product Id" %>
+              <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                  </button>
+              </div>
+          </div>
+    <% end %>
+  </div>
   <h1>Workphase List</h1>
 </div>
 
@@ -13,7 +26,7 @@
     <thead>
       <tr>
           <th scope="col">Id</th>
-          <th scope="col">Product</th>
+          <th scope="col">Product: Id</th>
           <th scope="col">Phase</th>
           <th scope="col">Total req</th>
           <th scope="col">Total complete</th>
@@ -31,13 +44,13 @@
     <tbody>
       <%= content_tag_for(:tr, @workphases) do |workphase| %>
         <td scope="row"><%= workphase.id %></td>
-        <td><%#= workphase.product.productname %>: <%#= workphase.product_id %></td>
-        <td><%#= workphase.phase.phasename %>: <%#= workphase.phase_id %></td>
+        <td><%= workphase.product.productname %>: <%= workphase.product_id %></td>
+        <td><%= workphase.phase.phasename %> <%#= workphase.phase_id %></td>
         <td><%= workphase.totalToMake %></td>
         <td><%= workphase.totalMade %></td>
         <td><%= workphase.dateChanged.strftime("%d-%m-%Y") %></td>
         <td><%= workphase.dateComplete %></td>
-        <td><%= workphase.employee_id %> <%#= workphase.employee.lastname %></td>
+        <td><%= workphase.employee_id %> <%#= workphase.employee_id.lastname %></td>
         <td><%= workphase.adminNote %></td>
         <td><%= workphase.worknote %></td>
         <td><%= link_to 'Show',     workphase %></td>
