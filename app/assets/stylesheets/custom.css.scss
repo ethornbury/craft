@@ -108,7 +108,9 @@ input {
   width:50%;
   height:400px;
   background-repeat:no-repeat;
+  /* not found in heroku, so using html img tag
   background-image: url("studio-in-action.jpg");
+  */
   border-radius:5px;
   margin: 0 auto;
   }
