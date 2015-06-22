@@ -12,29 +12,32 @@ class PhasesControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:phases)
+    assert_select "title", "Phase List | CraftWork"
   end
 
   test "should get new" do
     get :new
     assert_response :success
+    assert_select "title", "New Phase | CraftWork"
   end
 
   test "should create phase" do
     assert_difference('Phase.count') do
       post :create, phase: { note: "note here", phasename: "phase 1" }
     end
-
     assert_redirected_to phase_path(assigns(:phase))
   end
 
   test "should show phase" do
     get :show, id: @phase
     assert_response :success
+    assert_select "title", "Show Phase | CraftWork"
   end
 
   test "should get edit" do
     get :edit, id: @phase
     assert_response :success
+    assert_select "title", "Edit Phase | CraftWork"
   end
 
   test "should update phase" do
