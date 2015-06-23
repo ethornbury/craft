@@ -14,6 +14,18 @@ class WorkphasesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:workphases)
     assert_select "title", "Workphase List | CraftWork"
   end
+  test "should get view" do
+    get :view
+    assert_response :success
+    assert_not_nil assigns(:workphases)
+  end
+  test "should get viewmain" do
+    get :viewmain
+    
+    assert_response :success
+    assert_not_nil assigns(:workphases)
+    assert_select "title", "View All CraftWork | CraftWork"
+  end
 
   test "should get new" do
     get :new

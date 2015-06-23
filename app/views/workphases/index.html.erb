@@ -42,10 +42,13 @@
     </thead>
 
     <tbody>
+      <% workphases = Workphase.includes(:product, :phase).all %>
+      
       <%= content_tag_for(:tr, @workphases) do |workphase| %>
         <td scope="row"><%= workphase.id %></td>
-        <td><%= workphase.product.productname %>: <%= workphase.product_id %></td>
-        <td><%= workphase.phase.phasename %> <%#= workphase.phase_id %></td>
+        <td><%= workphase.product.productname if workphase.product %>: <%= workphase.product_id %></td>
+        <td><%= workphase.phase.try(:phasename) %> <%#= workphase.phase_id %></td>
+        <!-- above are 2 different ways of managing error 'undefined method.. nil:NilClass' -->
         <td><%= workphase.totalToMake %></td>
         <td><%= workphase.totalMade %></td>
         <td><%= workphase.dateChanged.strftime("%d-%m-%Y") %></td>

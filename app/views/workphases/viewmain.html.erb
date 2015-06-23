@@ -31,11 +31,12 @@
         <div class="flex-item headings">My Id</div>
         <div class="flex-item headings">Comment</div>
       </div>
-   
+      
+    <% workphases = Workphase.includes(:product, :phase).all %>
     <%= content_tag_for(:tr, @workphases) do |workphase| %>
       <div class="flex-container">
-        <div class="flex-item"><%= workphase.phase.phasename %>: <%= workphase.phase_id %></div>
-        <div class="flex-item"><%= workphase.product.productname %> <%#= workphase.product_id %></div>
+        <div class="flex-item"><%= workphase.phase.phasename if workphase.phase %>: <%= workphase.phase_id %></div>
+        <div class="flex-item"><%= workphase.product.productname if workphase.product %> <%#= workphase.product_id %></div>
         <div class="flex-item"><%= workphase.totalToMake %></div>
         <div class="flex-item"><%= workphase.adminNote %></div>
         <div class="flex-item"><%= best_in_place workphase, :totalMade, place_holder: "(edit total)" %></div>

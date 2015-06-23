@@ -1,4 +1,4 @@
-<% provide(:title, 'View CraftWork') %>
+<%# provide(:title, 'View CraftWork') %>
 
   <div class="page-header">
       <%= link_to work_all_path, class: 'btn btn-default' do %>
@@ -21,13 +21,13 @@
     <div class="flex-item">My Id</div>
     <div class="flex-item">Comment</div>
   </div>
-  
+  <% workphases = Workphase.includes(:product, :phase).all %>
   <% totalRequired = 0 %><% totalCompleted = 0 %>
     
   <%= content_tag_for(:tr, @workphases) do |workphase| %>
   <div class="flex-container"> 
-    <div class="flex-item"><%= workphase.phase.phasename %>: <%= workphase.phase_id %></div>
-    <div class="flex-item"><%= workphase.product.productname %>: <%#= workphase.product_id %></div>    
+    <div class="flex-item"><%= workphase.phase.phasename if workphase.phase %>: <%= workphase.phase_id %></div>
+    <div class="flex-item"><%= workphase.product.productname if workphase.product %> <%#= workphase.product_id %></div>    
     <div class="flex-item"><%= workphase.totalToMake %></div>
     <div class="flex-item"><%= workphase.adminNote %></div>
     <div class="flex-item"><%= best_in_place workphase, :totalMade, place_holder: "(edit total)" %></div>
