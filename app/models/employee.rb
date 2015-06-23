@@ -22,7 +22,7 @@ class Employee < ActiveRecord::Base
     
     def self.search(query)
     # return an similar match of the query
-       where("lastname like ?", "%#{query}%") 
+       where("lastname ILIKE ?", "%#{query}%") 
     end
     
     def self.import(file)

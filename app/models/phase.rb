@@ -10,7 +10,7 @@ class Phase < ActiveRecord::Base
   
   def self.search(query)
     # return an similar match of the query
-       where("phasename like ?", "%#{query}%") 
+       where("phasename ILIKE ?", "%#{query}%") 
   end
  
 end
