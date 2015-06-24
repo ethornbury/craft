@@ -8,18 +8,17 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    #@employees = Employee.all
-    
+    #@employees = Employee.all  #created by rails scaffold
     if params[:search]
       @employees = Employee.search(params[:search]).order("lastname ASC")
     else
       @employees = Employee.all.order("lastname ASC")
     end
-    
 
     respond_to do |format|
       format.html
       format.csv { render text: @employees.to_csv }
+      #to create the csv file for download
     end
   end
 
@@ -33,11 +32,11 @@ class EmployeesController < ApplicationController
     @employee = Employee.new
     @employee.user_id = current_user.id
     @employee.email = current_user.email
+    #pass the above params over from user to employee table
   end
 
   # GET /employees/1/edit
   def edit
-    
   end
 
   # POST /employees
@@ -45,7 +44,7 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(employee_params)
     @employee.id = current_user.id
-
+    # pass the current_user id to the employee to keep the records tight
     edit
     
     respond_to do |format|
@@ -85,6 +84,7 @@ class EmployeesController < ApplicationController
 #    else
     
       Employee.find(params[:id]).destroy
+      #the syntax in the above fixed a nil:NilClass issue
       respond_to do |format|
         format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }
         format.json { head :no_content }

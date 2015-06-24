@@ -3,7 +3,6 @@ class WorkphasesController < ApplicationController
   before_action :authenticate_user! 
   before_action :ensure_admin, only: [:destroy]
 
-  delegate :fullname,     to: :employee, prefix: true #facillitates => @workphase.employee_fullname
   delegate :firstname,    to: :employee, prefix: true
   delegate :lastname,     to: :employee, prefix: true
   delegate :phasename,    to: :phase,    prefix: true
@@ -28,6 +27,7 @@ class WorkphasesController < ApplicationController
     else
       @workphases = Workphase.all
     end
+    
     respond_to do |format|
       format.html
       format.csv { render text: @workphases.to_csv }

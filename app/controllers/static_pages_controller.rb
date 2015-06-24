@@ -15,13 +15,14 @@ class StaticPagesController < ApplicationController
   
   def show_pdf
     #pdf_filename = File.join(Rails.root, "public/sample.pdf") #this option didn't work
-    send_file("#{Rails.root}/public/craftwork-app.pdf",        #pdf_filename, 
+    send_file("#{Rails.root}/public/craftwork-app.pdf",        
         :filename => "craftwork-app.pdf", 
         :disposition => 'inline', 
         :type => "application/pdf")
   end
   
   def download_pdf
+    #creates the pathname from root folder to public folder where I have stored the pdf
     send_file("#{Rails.root}/public/craftwork-app.pdf",
       filename: "craftwork-app.pdf",
       type: "application/pdf"

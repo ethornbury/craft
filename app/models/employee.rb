@@ -1,8 +1,11 @@
 class Employee < ActiveRecord::Base
   belongs_to :user
+  #this links the employee to the user
   has_many :workphases
-
+  #this links the employee to workphases
+    
   #validates :firstname,  presence: true,length: { maximum: 80 }
+  #above line is another syntax for the lines below
   validates :firstname,  
             :length  => {:minimum => 2, :maximum => 80, :message => "invalid length"},
             :presence => {:message => "can't be empty" }
@@ -16,22 +19,26 @@ class Employee < ActiveRecord::Base
                     :format => { with: VALID_EMAIL_REGEX, :message => "invalid format" },
                     uniqueness: { case_sensitive: false }
                     
-    def fullname
+    def fullname  #to display the employee name concatonated
         "#{firstname} #{lastname}"
     end
     
     def self.search(query)
-    # return an similar match of the query
+    # returns a similar match of the query
        where("lastname ILIKE ?", "%#{query}%") 
+       #ILIKE facilitates the heroku postgreSQL db
     end
     
-    def self.import(file)
+    def self.import(file)  
+        #importing csv file and creating employee record
+        #excludes first line in csv file which contains headings
         CSV.foreach(file.path, headers: true) do |row|
             Employee.create! row.to_hash
         end
     end
     
-    def self.to_csv
+    def self.to_csv   
+        #create the csv from the table 
         CSV.generate do |csv|
             csv << column_names
             all.each do |employee|

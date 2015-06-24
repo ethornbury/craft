@@ -10,13 +10,14 @@ class ProductsController < ApplicationController
       @products = Product.search(params[:search]).order("productname ASC")
     else
       @products = Product.all.order("productname ASC")
+      #if no search then all displayed in alphabetical order
     end
     
     respond_to do |format|
       format.html
       format.csv { render text: @products.to_csv }
     end
-    #@products = Product.all
+    #@products = Product.all  #original created with scaffold
   end
 
   # GET /products/1
@@ -74,7 +75,6 @@ class ProductsController < ApplicationController
   end
   
   def import
-    #flash.clear
     respond_to do |format|
       begin 
         Product.import(params[:file])
