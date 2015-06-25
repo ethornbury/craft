@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_action :authenticate_user!, except: [:home, :contact, :about]
+  before_action :authenticate_user!, except: [:home, :contact, :about, :show_pdf, :download_pdf]
   
   def home
   end

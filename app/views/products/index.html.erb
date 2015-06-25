@@ -6,7 +6,7 @@
     New Product
   <% end %>
   
-  <div class="col-md-6 pull-right">
+  <div class="col-md-6 pull-right" aria-label="Input Search">
     <%= form_tag(products_path, :method => "get", class: "navbar-form", id: "search-form") do %>
         <div class="input-group col-md-7">
            <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Products" %>
