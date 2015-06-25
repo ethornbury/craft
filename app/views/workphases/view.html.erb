@@ -10,7 +10,7 @@
 <!-- used for debugging during development
  <pre>workphase/phase id<%#= workphase.phase.to_yaml %></pre>   
 -->
-  <p>To edit within boxes, click them. You may need to reload the page.</p>
+  <p>To edit within cells, click them. Your browser may require you to reload the page.</p>
   <div class="flex-outside">
   <div class="flex-container headings">
     <div class="flex-item">Phase: Id</div>
@@ -38,5 +38,5 @@
   <% totalCompleted = totalCompleted  + workphase.totalMade %>  
   <% end %>
 </div>
-<p>Total Required: <%= totalRequired %></p>
-<p>Total Complete: <%= totalCompleted %></p> 
+<p><b>Total Required: <%= totalRequired %></b></p>
+<p><b>Total Complete: <%= totalCompleted %></b></p> 
