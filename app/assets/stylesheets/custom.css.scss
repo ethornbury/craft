@@ -108,9 +108,8 @@ input {
   width:50%;
   height:400px;
   background-repeat:no-repeat;
-  /* not found in heroku, so using html img tag
-  background-image: url("studio-in-action.jpg");
-  */
+  /* not found in heroku, so was using html img tag */
+  background-image: url("../images/studio-in-action.jpg");
   border-radius:5px;
   margin: 0 auto;
   }
@@ -122,9 +121,10 @@ input {
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2) {
   .emertron{
-  
+  background-image: url("../images/studio-in-action-sml.jpg");
   } 
  }
+ 
 .myLinkis{
  text-shadow: 1px 0px 1px #191919;
  font-style: italic;
