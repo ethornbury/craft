@@ -104,15 +104,15 @@ input {
   and (min-device-width: 1200px) 
   and (max-device-width: 1600px) 
   and (-webkit-min-device-pixel-ratio: 1){
-.emertron{
-  width:50%;
-  height:400px;
-  background-repeat:no-repeat;
-  /* not found in heroku, so was using html img tag */
-  background-image: url("../images/studio-in-action.jpg");
-  border-radius:5px;
-  margin: 0 auto;
-  }
+  .emertron{
+    width:50%;
+    height:400px;
+    background-repeat:no-repeat;
+    /* not found in heroku, so was using html img tag */
+    background-image: url("../images/studio-in-action.jpg");
+    border-radius:5px;
+    margin: 0 auto;
+    }
 }
 .homepage-container{
   padding-bottom: 10px;
@@ -120,9 +120,9 @@ input {
  @media only screen and (min-device-width: 320px) 
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2) {
-  .emertron{
-  background-image: url("../images/studio-in-action-sml.jpg");
-  } 
+    .emertron{
+    background-image: url("../images/studio-in-action-sml.jpg");
+    } 
  }
  
 .myLinkis{
