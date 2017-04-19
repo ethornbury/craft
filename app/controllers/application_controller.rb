@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+  
+  def admin?
+    admin
+  end 
 end

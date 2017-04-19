@@ -48,8 +48,8 @@
 
     <tbody>
       <%= content_tag_for(:tr, @employees) do |employee| %>
-          <td scope="row"><%= employee.fullname %></td>
-          <td><%= employee.email %></td>
+          <td scope="row"><%= employee.try(:fullname )%></td>
+          <td><%= employee.try(:email) %></td>
           <td><%= employee.add1 %></td>
           <td><%= employee.add2 %></td>
           <td><%= employee.add3 %></td>
